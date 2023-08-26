@@ -5,15 +5,16 @@ import engine.util.Position;
 
 public class Board {
     private Cell[][] board;
-
+    public static final int BOARD_MAX_ROWS = 8;
+    public static final int BOARD_MAX_COLS = 8;
     public Board() {
         this.board = new Cell[8][8];
         initBoard();
     }
 
     private void initBoard() {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
+        for (int i = 0; i < BOARD_MAX_ROWS; i++) {
+            for (int j = 0; j < BOARD_MAX_COLS; j++) {
                 board[i][j] = new EmptyCell(new Position(i, j));
             }
         }
