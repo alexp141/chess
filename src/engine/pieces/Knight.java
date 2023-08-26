@@ -1,10 +1,9 @@
 package engine.pieces;
 
 import engine.Team;
-import engine.board.Board;
-import engine.board.Cell;
-import engine.board.Move;
+import engine.board.*;
 import engine.util.Position;
+import engine.util.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,16 +22,19 @@ public class Knight extends Piece{
         //check if in bounds of board
         // x+-1 and y+-2
         for (int[] offsets : possibleOffsets) {
-            if (checkIfInBounds(this.position, offsets[0], offsets[1])) {
+            Position possibleDestination = new Position(this.position.getX() + offsets[0], this.position.getY() + offsets[1]);
+            if (Utility.checkIfInBounds(this.position, possibleDestination)) {
                 //get cell at destination
-                Cell destinationCell = board.getCellAt(this.position.getX() + offsets[0], this.position.getY() + offsets[1]);
+                Cell destinationCell = board.getCellAt(possibleDestination.getX(), possibleDestination.getY());
                 if (!destinationCell.isOccupied()) {
                     //new regular move
+                    possibleMoves.add(new PassiveMove(board, this, possibleDestination));
                 }
                 else {
                     //check team
                     if (destinationCell.getPiece().getTeam() != this.getTeam()) {
-                        //attack
+                        //attack enemy
+                        possibleMoves.add(new AttackMove(board, this, possibleDestination, destinationCell.getPiece()));
                     }
                 }
 
@@ -44,11 +46,4 @@ public class Knight extends Piece{
         return possibleMoves;
     }
 
-    private boolean checkIfInBounds(Position curr, int newX, int newY) {
-        if(curr.getX() + newX >= 0 && curr.getX() + newX <= 7 &&
-            curr.getY() + newY >= 0 && curr.getY() + newY <= 7) {
-            return true;
-        }
-        return false;
-    }
 }
