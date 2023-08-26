@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,7 +62,22 @@
       <recent name="engine.pieces" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.BishopTest">
+    <configuration name="BishopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="engine.pieces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="engine.pieces" />
+      <option name="MAIN_CLASS_NAME" value="engine.pieces.BishopTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RookTest.testCalculateMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -82,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BishopTest" />
         <item itemvalue="JUnit.RookTest.testCalculateMoves" />
       </list>
     </recent_temporary>
@@ -96,5 +111,21 @@
       <updated>1692996422539</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/engine/pieces/RookTest.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/engine/pieces/BishopTest.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
