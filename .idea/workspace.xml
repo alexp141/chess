@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/engine/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/engine/pieces/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/engine/pieces/RookTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,7 @@
       <recent name="engine.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BishopTest">
+  <component name="RunManager" selected="JUnit.RookTest">
     <configuration name="BishopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -73,6 +74,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="engine.pieces" />
       <option name="MAIN_CLASS_NAME" value="engine.pieces.BishopTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="engine.pieces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="engine.pieces" />
+      <option name="MAIN_CLASS_NAME" value="engine.pieces.RookTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,6 +112,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RookTest" />
         <item itemvalue="JUnit.BishopTest" />
         <item itemvalue="JUnit.RookTest.testCalculateMoves" />
       </list>

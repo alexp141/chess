@@ -18,25 +18,15 @@ public class Rook extends Piece {
         List<Move> possibleMoves = new ArrayList<>();
         int currX = this.position.getX();
         int currY = this.position.getY();
+        //up
+        checkLine(board, possibleMoves, currX,currY-1,0, -1);
+        //down
+        checkLine(board, possibleMoves, currX,currY+1,0, 1);
+        //left
+        checkLine(board, possibleMoves, currX-1,currY,-1, 0);
+        //right
+        checkLine(board, possibleMoves, currX+1,currY,1, 0);
 
-        while(Utility.checkIfInBounds(++currX, currY)) {
-            calculateMoveType(board, currX, currY, possibleMoves);
-        }
-        //reset coordinate
-        currX = this.position.getX();
-        while(Utility.checkIfInBounds(--currX, currY)) {
-            calculateMoveType(board, currX, currY, possibleMoves);
-        }
-        //reset coordinate
-        currX = this.position.getX();
-        while(Utility.checkIfInBounds(currX, ++currY)) {
-            calculateMoveType(board, currX, currY, possibleMoves);
-        }
-        //reset coordinate
-        currY = this.position.getY();
-        while(Utility.checkIfInBounds(currX, --currY)) {
-            calculateMoveType(board, currX, currY, possibleMoves);
-        }
         return possibleMoves;
     }
 
@@ -51,5 +41,15 @@ public class Rook extends Piece {
         else {
             possibleMoves.add(new PassiveMove(board, this, new Position(currX, currY)));
         }
+    }
+
+    private void checkLine(Board board, List<Move> possibleMoves, int currX, int currY, int dx, int dy) {
+        if(!Utility.checkIfInBounds(currX,currY)) {
+            return;
+        }
+
+        calculateMoveType(board, currX, currY, possibleMoves);
+        checkLine(board, possibleMoves, currX + dx, currY + dy, dx , dy);
+
     }
 }
