@@ -1,5 +1,6 @@
 package engine.board;
 
+import engine.pieces.Piece;
 import engine.util.Position;
 
 public class Board {
@@ -16,5 +17,21 @@ public class Board {
                 board[i][j] = new EmptyCell(new Position(i, j));
             }
         }
+    }
+
+    public Cell getCellAt(Position position) {
+        return this.board[position.getX()][position.getY()];
+    }
+
+    public Cell getCellAt(int x, int y) {
+        return this.board[x][y];
+    }
+
+    public Piece getPieceAt(Position position) {
+        return this.board[position.getX()][position.getY()].getPiece();
+    }
+
+    public Piece getPieceAt(int x, int y) {
+        return this.board[x][y].getPiece();
     }
 }
