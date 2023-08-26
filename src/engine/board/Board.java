@@ -35,4 +35,8 @@ public class Board {
     public Piece getPieceAt(int x, int y) {
         return this.board[x][y].getPiece();
     }
+
+    public void placePiece(Piece piece, int x, int y) {
+        this.board[x][y] = new OccupiedCell(new Position(x,y), piece);
+    }
 }
