@@ -7,6 +7,8 @@ public class Board {
     private Cell[][] board;
     public static final int BOARD_MAX_ROWS = 8;
     public static final int BOARD_MAX_COLS = 8;
+    public static final int BOARD_SECOND_ROW = 1;
+    public static final int BOARD_SEVENTH_ROW = 6;
     public Board() {
         this.board = new Cell[8][8];
         initBoard();
@@ -21,22 +23,22 @@ public class Board {
     }
 
     public Cell getCellAt(Position position) {
-        return this.board[position.getX()][position.getY()];
+        return this.board[position.getY()][position.getX()];
     }
 
     public Cell getCellAt(int x, int y) {
-        return this.board[x][y];
+        return this.board[y][x]; //[row][col]
     }
 
     public Piece getPieceAt(Position position) {
-        return this.board[position.getX()][position.getY()].getPiece();
+        return getCellAt(position).getPiece();
     }
 
     public Piece getPieceAt(int x, int y) {
-        return this.board[x][y].getPiece();
+        return this.board[y][x].getPiece();
     }
 
     public void placePiece(Piece piece, int x, int y) {
-        this.board[x][y] = new OccupiedCell(new Position(x,y), piece);
+        this.board[y][x] = new OccupiedCell(new Position(x,y), piece);
     }
 }
