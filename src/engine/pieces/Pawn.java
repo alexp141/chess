@@ -48,7 +48,14 @@ public class Pawn extends Piece {
             //frontal double move
             else if ((x == 0 && y == -2) && this.isFirstMove && ((this.getTeam() == Team.BLACK && this.position.getX() == Board.BOARD_SECOND_ROW) ||
                     this.getTeam() == Team.WHITE && this.position.getX() == Board.BOARD_SEVENTH_ROW)) {
-                
+                Cell destinationCell = board.getCellAt(destination.getX(), destination.getY());
+                if (!destinationCell.isOccupied()) {
+                    //check if cell behind destination is occupied
+                    Cell cellBehindDestination = board.getCellAt(destination.getX() - dx, destination.getY());
+                    if (!cellBehindDestination.isOccupied()) {
+                        possibleMoves.add(new PassiveMove(board, this, destination));
+                    }
+                }
             }
 
         }
