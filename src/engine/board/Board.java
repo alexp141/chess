@@ -4,8 +4,16 @@ import engine.Team;
 import engine.pieces.*;
 import engine.util.Position;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
     private Cell[][] board;
+    private List<Piece> activeWhitePieces;
+    private List<Piece> activeBlackPieces;
+
+    private List<Move> whitePossibleMoves;
+    private List<Move> blackPossibleMoves;
     public static final int BOARD_MAX_ROWS = 8;
     public static final int BOARD_MAX_COLS = 8;
     public static final int BOARD_SECOND_ROW = 1;
@@ -14,6 +22,10 @@ public class Board {
     public static final int BOARD_LAST_ROW = 7;
     public Board() {
         this.board = initBoard();
+        this.activeWhitePieces = getActivePieces(Team.WHITE);
+        this.activeBlackPieces = getActivePieces(Team.BLACK);
+        this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
+        this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
     }
 
     private Cell[][] initBoard() {
@@ -49,6 +61,14 @@ public class Board {
         return board;
     }
 
+    public List<Piece> getActiveWhitePieces() {
+        return this.activeWhitePieces;
+    }
+
+    public List<Piece> getActiveBlackPieces() {
+        return this.activeBlackPieces;
+    }
+
     public Cell getCellAt(Position position) {
         return this.board[position.getY()][position.getX()];
     }
@@ -67,5 +87,34 @@ public class Board {
 
     public void placePiece(Piece piece, int x, int y) {
         this.board[y][x] = new OccupiedCell(piece);
+    }
+
+    /**
+     * get active pieces for white or black
+     * @param team
+     * @return
+     */
+    private List<Piece> getActivePieces(Team team) {
+        List<Piece> pieces = new ArrayList<>();
+
+        for (int i = 0; i < BOARD_MAX_ROWS; i++) {
+            for (int j = 0; j < BOARD_MAX_COLS; j++) {
+                Piece piece = board[i][j].getPiece();
+                if (piece.getTeam() == team) {
+                    pieces.add(piece);
+                }
+            }
+        }
+
+        return pieces;
+    }
+
+    private List<Move> getPossibleMoves(List<Piece> teamPieces) {
+        List<Move> possibleMoves = new ArrayList<>();
+
+        for (Piece piece : teamPieces) {
+            possibleMoves.addAll(piece.calculateMoves(this));
+        }
+        return possibleMoves;
     }
 }
