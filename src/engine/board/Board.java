@@ -94,7 +94,7 @@ public class Board {
      * @param team
      * @return
      */
-    private List<Piece> getActivePieces(Team team) {
+    public List<Piece> getActivePieces(Team team) {
         List<Piece> pieces = new ArrayList<>();
 
         for (int i = 0; i < BOARD_MAX_ROWS; i++) {
@@ -109,7 +109,7 @@ public class Board {
         return pieces;
     }
 
-    private List<Move> getPossibleMoves(List<Piece> teamPieces) {
+    public List<Move> getPossibleMoves(List<Piece> teamPieces) {
         List<Move> possibleMoves = new ArrayList<>();
 
         for (Piece piece : teamPieces) {
