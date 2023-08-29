@@ -14,4 +14,9 @@ public abstract class Move {
         this.destination = destination;
     }
 
+    public Position getDestination() {
+        return this.destination;
+    }
+
+    public abstract Board executeMove(Board board); //decide between current board and copy of board
 }

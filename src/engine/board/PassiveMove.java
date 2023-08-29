@@ -9,5 +9,10 @@ public class PassiveMove extends Move{
         super(board, movingPiece, destination);
     }
 
+    @Override
+    public Board executeMove(Board board) {
+        return null;
+    }
+
 
 }

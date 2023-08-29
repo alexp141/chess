@@ -19,4 +19,6 @@ public class OccupiedCell extends Cell{
     public Piece getPiece() {
         return piece;
     }
+
+
 }

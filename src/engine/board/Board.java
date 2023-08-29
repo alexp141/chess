@@ -2,30 +2,36 @@ package engine.board;
 
 import engine.Team;
 import engine.pieces.*;
+import engine.player.Player;
 import engine.util.Position;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    private Cell[][] board;
-    private List<Piece> activeWhitePieces;
-    private List<Piece> activeBlackPieces;
 
-    private List<Move> whitePossibleMoves;
-    private List<Move> blackPossibleMoves;
     public static final int BOARD_MAX_ROWS = 8;
     public static final int BOARD_MAX_COLS = 8;
     public static final int BOARD_SECOND_ROW = 1;
     public static final int BOARD_FIRST_ROW = 0;
     public static final int BOARD_SEVENTH_ROW = 6;
     public static final int BOARD_LAST_ROW = 7;
+    private Cell[][] board;
+    private List<Piece> activeWhitePieces;
+    private List<Piece> activeBlackPieces;
+
+    private List<Move> whitePossibleMoves;
+    private List<Move> blackPossibleMoves;
+    private Player currentPlayer;
+
     public Board() {
         this.board = initBoard();
+        this.currentPlayer = null;
         this.activeWhitePieces = getActivePieces(Team.WHITE);
         this.activeBlackPieces = getActivePieces(Team.BLACK);
         this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
         this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
+
     }
 
     private Cell[][] initBoard() {
@@ -59,6 +65,10 @@ public class Board {
 
 
         return board;
+    }
+
+    public Cell[][] getBoard() {
+        return this.board;
     }
 
     public List<Piece> getActiveWhitePieces() {
@@ -116,5 +126,19 @@ public class Board {
             possibleMoves.addAll(piece.calculateMoves(this));
         }
         return possibleMoves;
+    }
+
+    /**
+     * keeps track of which cells are being attacked by white or black pieces
+     * @return
+     */
+    public Cell[][] updateCellData() {
+
+        return null;
+    }
+
+    public Cell[][] copyBoard() {
+
+        return null;
     }
 }
