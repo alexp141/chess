@@ -133,8 +133,28 @@ public class Board {
      * @return
      */
     public Cell[][] updateCellData() {
+        //get white moves
+        //get black moves
+        //calculate which cells are being attacked
 
-        return null;
+        //reset board
+        for (int i = 0; i < BOARD_MAX_ROWS; i++) {
+            for (int j = 0; j < BOARD_MAX_COLS; j++) {
+                board[i][j].setAttackedByBlack(false);
+                board[i][j].setAttackedByWhite(false);
+            }
+
+        }
+
+        //recalculate
+        for (Move move : this.whitePossibleMoves) {
+            getCellAt(move.getDestination()).setAttackedByWhite(true);
+        }
+
+        for (Move move : this.blackPossibleMoves) {
+            getCellAt(move.getDestination()).setAttackedByBlack(true);
+        }
+        return this.board;
     }
 
     public Cell[][] copyBoard() {
