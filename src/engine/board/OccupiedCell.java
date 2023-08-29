@@ -3,10 +3,16 @@ package engine.board;
 import engine.pieces.Piece;
 import engine.util.Position;
 
-public class OccupiedCell extends Cell{
+public class OccupiedCell extends Cell {
     private Piece piece;
 
     public OccupiedCell(Piece piece) {
+        super();
+        this.piece = piece;
+    }
+
+    public OccupiedCell(boolean attackedByWhite, boolean attackedByBlack, Piece piece) {
+        super(attackedByWhite, attackedByBlack);
         this.piece = piece;
     }
 
