@@ -37,7 +37,7 @@ public class Pawn extends Piece {
             }
             //frontal single move
             if(x == 0 && y == -1) {
-                Utility.calculateMoveType(board, this, destination.getX(), destination.getY(), possibleMoves);
+                Board.calculateMoveType(board, this, destination.getX(), destination.getY(), possibleMoves);
             }
             //diagonal attacks
             else if (x == -1 && y == -1 || x == 1 && y == -1) {
@@ -46,7 +46,7 @@ public class Pawn extends Piece {
                 if (destinationCell.isOccupied()) {
                     Piece pieceAtDestination = destinationCell.getPiece();
                     if (pieceAtDestination.getTeam() != this.getTeam()) {
-                        possibleMoves.add(new AttackMove(board, this, new Position(x, y), pieceAtDestination));
+                        possibleMoves.add(new AttackMove(board, this, this.getPosition(), new Position(x, y), pieceAtDestination));
                     }
                 }
             }
@@ -58,7 +58,7 @@ public class Pawn extends Piece {
                     //check if cell behind destination is occupied
                     Cell cellBehindDestination = board.getCellAt(destination.getX() - dx, destination.getY());
                     if (!cellBehindDestination.isOccupied()) {
-                        possibleMoves.add(new PassiveMove(board, this, destination));
+                        possibleMoves.add(new PassiveMove(board, this, this.getPosition(), destination));
                     }
                 }
             }

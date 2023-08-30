@@ -48,22 +48,9 @@ public class Queen extends Piece {
             return;
         }
 
-        calculateMoveType(board, currX, currY, possibleMoves);
+        Board.calculateMoveType(board, this, currX, currY, possibleMoves);
         checkLine(board, possibleMoves, currX + dx, currY + dy, dx , dy);
 
-    }
-
-    private void calculateMoveType(Board board, int currX, int currY, List<Move> possibleMoves) {
-        Cell destinationCell = board.getCellAt(currX, currY);
-        if (destinationCell.isOccupied()) {
-            Piece pieceAtDestination = destinationCell.getPiece();
-            if (pieceAtDestination.getTeam() != this.getTeam()) {
-                possibleMoves.add(new AttackMove(board, this, new Position(currX, currY), pieceAtDestination));
-            }
-        }
-        else {
-            possibleMoves.add(new PassiveMove(board, this, new Position(currX, currY)));
-        }
     }
 
     @Override

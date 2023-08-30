@@ -1,9 +1,6 @@
 package engine.util;
 
 import engine.board.*;
-import engine.pieces.Piece;
-
-import java.util.List;
 
 public class Utility {
     //private constructor since it is a utility class
@@ -26,25 +23,4 @@ public class Utility {
         return false;
     }
 
-    /**
-     * calculates move type that a piece can do at the (x,y) coordinate
-     * assuming that is a space the piece can legally move to
-     * @param board
-     * @param piece
-     * @param x
-     * @param y
-     * @param possibleMoves
-     */
-    public static void calculateMoveType(Board board, Piece piece, int x, int y, List<Move> possibleMoves) {
-        Cell destinationCell = board.getCellAt(x, y);
-        if (destinationCell.isOccupied()) {
-            Piece pieceAtDestination = destinationCell.getPiece();
-            if (pieceAtDestination.getTeam() != piece.getTeam()) {
-                possibleMoves.add(new AttackMove(board, piece, new Position(x, y), pieceAtDestination));
-            }
-        }
-        else {
-            possibleMoves.add(new PassiveMove(board, piece, new Position(x, y)));
-        }
-    }
 }

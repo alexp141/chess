@@ -40,6 +40,28 @@ public class Board {
         this.currentPlayer = this.playerWhite;
     }
 
+    /**
+     * calculates move type that a piece can do at the (x,y) coordinate
+     * assuming that is a space the piece can legally move to
+     * @param board
+     * @param piece
+     * @param x
+     * @param y
+     * @param possibleMoves
+     */
+    public static void calculateMoveType(Board board, Piece piece, int x, int y, List<Move> possibleMoves) {
+        Cell destinationCell = board.getCellAt(x, y);
+        if (destinationCell.isOccupied()) {
+            Piece pieceAtDestination = destinationCell.getPiece();
+            if (pieceAtDestination.getTeam() != piece.getTeam()) {
+                possibleMoves.add(new AttackMove(board, piece, piece.getPosition(), new Position(x, y), pieceAtDestination));
+            }
+        }
+        else {
+            possibleMoves.add(new PassiveMove(board, piece, piece.getPosition(), new Position(x, y)));
+        }
+    }
+
     private Cell[][] initBoard() {
         Cell[][] board = new Cell[8][8];
         //black pawns

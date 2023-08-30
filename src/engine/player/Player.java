@@ -20,6 +20,7 @@ public abstract class Player {
 
     public Player(Board board, Team team) {
         this.board = board;
+        this.activePieces = board.getActivePieces(team);
         this.team = team;
         this.hasCastled = false;
     }

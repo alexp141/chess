@@ -6,10 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/board/AttackMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/AttackMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/board/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Queen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/util/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/util/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/equality/EqualityTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/equality/EqualityTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/util/Utility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,26 +45,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "create.test.in.the.same.root": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="engine.board.Board" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="engine.util" />
@@ -65,35 +77,11 @@
       <recent name="engine.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EqualityTests.testRook">
-    <configuration name="EqualityTests.testBishop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in chess">
+    <configuration name="All in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="equality.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="equality" />
-      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
-      <option name="METHOD_NAME" value="testBishop" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EqualityTests.testKing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="equality.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="equality" />
-      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
-      <option name="METHOD_NAME" value="testKing" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,13 +134,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RookTest.testCalculateMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="engine.pieces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="engine.pieces" />
+      <option name="MAIN_CLASS_NAME" value="engine.pieces.RookTest" />
+      <option name="METHOD_NAME" value="testCalculateMoves" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in chess" />
+        <item itemvalue="JUnit.RookTest.testCalculateMoves" />
         <item itemvalue="JUnit.EqualityTests.testRook" />
         <item itemvalue="JUnit.EqualityTests.testPosition" />
         <item itemvalue="JUnit.EqualityTests.testPawn" />
-        <item itemvalue="JUnit.EqualityTests.testBishop" />
-        <item itemvalue="JUnit.EqualityTests.testKing" />
       </list>
     </recent_temporary>
   </component>
@@ -171,24 +175,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/engine/pieces/RookTest.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/engine/pieces/BishopTest.java</url>
           <line>15</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/engine/pieces/Knight.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/equality/EqualityTests.java</url>
           <line>59</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/engine/pieces/RookTest.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/board/Board.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

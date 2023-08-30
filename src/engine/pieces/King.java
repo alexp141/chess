@@ -6,7 +6,6 @@ import engine.util.Position;
 import engine.util.Utility;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class King extends Piece{
@@ -33,7 +32,7 @@ public class King extends Piece{
                 continue;
             }
 
-            Utility.calculateMoveType(board,this, destination.getX(), destination.getY(), possibleMoves);
+            Board.calculateMoveType(board,this, destination.getX(), destination.getY(), possibleMoves);
         }
 
         if (this.isFirstMove) {

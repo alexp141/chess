@@ -26,22 +26,11 @@ public class Knight extends Piece{
         //check if in bounds of board
         // x+-1 and y+-2
         for (int[] offsets : offsets) {
-            Position possibleDestination = new Position(this.position.getX() + offsets[0], this.position.getY() + offsets[1]);
-            if (Utility.checkIfInBounds(possibleDestination.getX(), possibleDestination.getY())) {
-                //get cell at destination
-                Cell destinationCell = board.getCellAt(possibleDestination.getX(), possibleDestination.getY());
-                if (!destinationCell.isOccupied()) {
-                    //new regular move
-                    possibleMoves.add(new PassiveMove(board, this, possibleDestination));
-                }
-                else {
-                    //check team
-                    if (destinationCell.getPiece().getTeam() != this.getTeam()) {
-                        //attack enemy
-                        possibleMoves.add(new AttackMove(board, this, possibleDestination, destinationCell.getPiece()));
-                    }
-                }
-
+            int dx = offsets[0];
+            int dy = offsets[1];
+            Position destination = new Position(this.position.getX() + dx, this.position.getY() + dy);
+            if (Utility.checkIfInBounds(destination.getX(), destination.getY())) {
+                Board.calculateMoveType(board,this, destination.getX(), destination.getY(), possibleMoves);
             } else {
                 continue;
             }

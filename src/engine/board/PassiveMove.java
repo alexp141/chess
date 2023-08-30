@@ -5,14 +5,18 @@ import engine.util.Position;
 
 public class PassiveMove extends Move{
 
-    public PassiveMove(Board board, Piece movingPiece, Position destination) {
-        super(board, movingPiece, destination);
+    public PassiveMove(Board board, Piece movingPiece, Position start, Position destination) {
+        super(board, movingPiece, start, destination);
     }
 
     @Override
-    public Board executeMove(Board board) {
+    public Board executeMove() {
         return null;
     }
 
+    @Override
+    public Board undoMove() {
+        return null;
+    }
 
 }
