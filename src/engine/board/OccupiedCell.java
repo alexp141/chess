@@ -26,5 +26,10 @@ public class OccupiedCell extends Cell {
         return piece;
     }
 
+    @Override
+    public Cell copy() {
+        return new OccupiedCell(piece.copy());
+    }
+
 
 }

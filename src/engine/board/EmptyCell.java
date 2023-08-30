@@ -14,4 +14,9 @@ public class EmptyCell extends Cell{
     public Piece getPiece() {
         return null;
     }
+
+    @Override
+    public Cell copy() {
+        return new EmptyCell();
+    }
 }

@@ -20,7 +20,7 @@ public abstract class Cell {
 
     public abstract boolean isOccupied();
     public abstract Piece getPiece();
-
+    public abstract Cell copy();
 
     public boolean isAttackedByWhite() {
         return this.attackedByWhite;
