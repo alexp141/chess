@@ -14,6 +14,11 @@ public class Bishop extends Piece {
     }
 
     @Override
+    public Piece copy() {
+        return new Bishop(new Position(this.position), team);
+    }
+
+    @Override
     public List<Move> calculateMoves(Board board) {
         List<Move> possibleMoves = new ArrayList<>();
         int currX = this.position.getX();

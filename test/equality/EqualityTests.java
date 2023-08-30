@@ -3,10 +3,7 @@ package equality;
 import engine.Team;
 import engine.board.Board;
 import engine.board.Move;
-import engine.pieces.Bishop;
-import engine.pieces.King;
-import engine.pieces.Pawn;
-import engine.pieces.Piece;
+import engine.pieces.*;
 import engine.util.Position;
 import org.junit.Test;
 
@@ -26,6 +23,11 @@ public class EqualityTests {
         assertTrue(!p3.equals(p1));
 
         assertTrue(p1.hashCode() == p2.hashCode());
+
+        Position a = new Position(p1);
+        assertEquals(a, p1);
+        assertEquals(p1,a);
+
     }
 
     @Test
@@ -73,5 +75,17 @@ public class EqualityTests {
         assertTrue(pawn1.equals(pawn1));
     }
 
+    @Test
+    public void testRook() {
+        Position p1 = new Position(0,0);
+        Position a = new Position(p1);
 
+        Rook r1 = new Rook(a, Team.WHITE);
+        r1.getPosition();
+        Piece r2 = r1.copy();
+        Piece r3 = r1.copy();
+        assertEquals(r1,r2);
+        assertEquals(r1,r3);
+        assertEquals(r3,r1);
+    }
 }

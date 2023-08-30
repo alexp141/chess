@@ -19,10 +19,15 @@ public abstract class Piece {
         this.isFirstMove = true;
     }
 
+    public abstract Piece copy();
     public abstract List<Move> calculateMoves(Board board);
 
     public Team getTeam() {
         return team;
+    }
+
+    public Position getPosition() {
+        return this.position;
     }
 
     @Override

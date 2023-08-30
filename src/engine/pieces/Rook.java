@@ -12,6 +12,11 @@ public class Rook extends Piece {
     public Rook(Position position, Team team) {
         super(position, team);
     }
+    
+    @Override
+    public Piece copy() {
+        return new Rook(new Position(this.position), team);
+    }
 
     @Override
     public List<Move> calculateMoves(Board board) {

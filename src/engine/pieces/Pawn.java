@@ -17,6 +17,10 @@ public class Pawn extends Piece {
     }
 
     @Override
+    public Piece copy() {
+        return new Pawn(new Position(this.position), team);
+    }
+    @Override
     public List<Move> calculateMoves(Board board) {
         List<Move> possibleMoves = new ArrayList<>();
 

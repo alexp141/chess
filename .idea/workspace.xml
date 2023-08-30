@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/util/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/util/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/util/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/engine/pieces/BishopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/engine/pieces/BishopTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/engine/pieces/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/engine/pieces/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/equality/EqualityTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/equality/EqualityTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +65,7 @@
       <recent name="engine.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EqualityTests.testPawn">
+  <component name="RunManager" selected="JUnit.EqualityTests.testRook">
     <configuration name="EqualityTests.testBishop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -136,28 +130,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EqualityTests.testRook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="engine.pieces.*" />
+          <option name="PATTERN" value="equality.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="engine.pieces" />
-      <option name="MAIN_CLASS_NAME" value="engine.pieces.RookTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="equality" />
+      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
+      <option name="METHOD_NAME" value="testRook" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EqualityTests.testRook" />
+        <item itemvalue="JUnit.EqualityTests.testPosition" />
         <item itemvalue="JUnit.EqualityTests.testPawn" />
         <item itemvalue="JUnit.EqualityTests.testBishop" />
-        <item itemvalue="JUnit.EqualityTests.testPosition" />
         <item itemvalue="JUnit.EqualityTests.testKing" />
-        <item itemvalue="JUnit.RookTest" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +187,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/equality/EqualityTests.java</url>
-          <line>57</line>
+          <line>59</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

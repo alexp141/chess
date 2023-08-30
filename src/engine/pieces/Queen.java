@@ -14,6 +14,11 @@ public class Queen extends Piece {
     }
 
     @Override
+    public Piece copy() {
+        return new Queen(new Position(this.position), team);
+    }
+
+    @Override
     public List<Move> calculateMoves(Board board) {
         List<Move> possibleMoves = new ArrayList<>();
         int currX = this.position.getX();

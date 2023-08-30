@@ -16,6 +16,10 @@ public class Knight extends Piece{
     }
 
     @Override
+    public Piece copy() {
+        return new Knight(new Position(this.position), team);
+    }
+    @Override
     public List<Move> calculateMoves(Board board) {
         List<Move> possibleMoves = new ArrayList<>();
 
