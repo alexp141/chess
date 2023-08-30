@@ -3,6 +3,8 @@ package engine.board;
 import engine.Team;
 import engine.pieces.*;
 import engine.player.Player;
+import engine.player.PlayerBlack;
+import engine.player.PlayerWhite;
 import engine.util.Position;
 
 import java.util.ArrayList;
@@ -22,16 +24,20 @@ public class Board {
 
     private List<Move> whitePossibleMoves;
     private List<Move> blackPossibleMoves;
+
+    private Player playerWhite;
+    private Player playerBlack;
     private Player currentPlayer;
 
     public Board() {
         this.board = initBoard();
-        this.currentPlayer = null;
         this.activeWhitePieces = getActivePieces(Team.WHITE);
         this.activeBlackPieces = getActivePieces(Team.BLACK);
         this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
         this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
-
+        this.playerWhite = new PlayerWhite(this, Team.WHITE);
+        this.playerBlack = new PlayerBlack(this, Team.BLACK);
+        this.currentPlayer = this.playerWhite;
     }
 
     private Cell[][] initBoard() {
@@ -162,8 +168,36 @@ public class Board {
         return this.board;
     }
 
-    public Cell[][] copyBoard() {
-
-        return null;
+    public Player getCurrentPlayer() {
+        return this.currentPlayer;
     }
+
+    public void switchPlayers() {
+        if (this.currentPlayer.getPlayerTeam() == Team.WHITE) {
+            this.currentPlayer = this.playerBlack;
+        }
+        else {
+            this.currentPlayer = this.playerWhite;
+        }
+
+    }
+    /* will possibly delete this as it is a very expensive operation
+    public Board(Cell[][] gameBoard) {
+        this.activeWhitePieces = getActivePieces(Team.WHITE);
+        this.activeBlackPieces = getActivePieces(Team.BLACK);
+        this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
+        this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
+        this.playerWhite = new PlayerWhite(this, Team.WHITE);
+        this.playerBlack = new PlayerBlack(this, Team.BLACK);
+    }
+
+    public Board createFutureBoard(){
+        Cell[][] copy = copyGameBoard();
+        return new Board(copy);
+    }
+
+    private Cell[][] copyGameBoard() {
+        return this.board.clone();
+    }
+     */
 }

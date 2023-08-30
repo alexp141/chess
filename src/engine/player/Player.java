@@ -27,9 +27,11 @@ public abstract class Player {
     public abstract List<Piece> getActivePieces();
 
     public abstract List<Move> getOpponentMoves();
+
     public Team getPlayerTeam() {
         return this.team;
     }
+
     public King getPlayerKing() {
         for (Piece piece : this.activePieces) {
             if (piece instanceof King) {
@@ -59,16 +61,27 @@ public abstract class Player {
         return this.hasCastled;
     }
 
-    public Cell[][] executeMove(Move move) {
+    public Board executeMove(Move move) {
         //check if move is legal
+        if (!this.possibleMoves.contains(move)) {
+            return this.board;
+        }
 
+        //METHOD ONE: CLONE BOARD
         //make move on futureboard (copy of current board)
+        //MoveStatus status = move.executeMove(futureBoard);
         //check if that move leaves player checked
         //if it does return same board (same board, Move status) obj
         //if the move is okay, return futureboard (new board, Move status) obj
         //refresh board variables?
         //update cellData
 
-        return this.board.getBoard();
+        //METHOD TWO: USING UNDO
+        //make move on board
+        //check if currentplayer is in check
+        //if they are : return not ok status and UNDO MOVE
+        //if they are not : return ok status and proceed
+
+        return this.board;
     }
 }
