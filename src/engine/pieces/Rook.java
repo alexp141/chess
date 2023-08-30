@@ -52,4 +52,13 @@ public class Rook extends Piece {
         checkLine(board, possibleMoves, currX + dx, currY + dy, dx , dy);
 
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Rook)) {
+            return false;
+        }
+
+        return super.equals(o);
+    }
 }

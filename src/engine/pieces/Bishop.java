@@ -52,4 +52,19 @@ public class Bishop extends Piece {
             possibleMoves.add(new PassiveMove(board, this, new Position(currX, currY)));
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (!(o instanceof Bishop)) {
+            return false;
+        }
+
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

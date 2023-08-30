@@ -63,6 +63,11 @@ public class Board {
         board[BOARD_LAST_ROW][6] = new OccupiedCell(new Knight(new Position(6, BOARD_LAST_ROW), Team.WHITE));
         board[BOARD_LAST_ROW][7] = new OccupiedCell(new Rook(new Position(7, BOARD_LAST_ROW), Team.WHITE));
 
+        for (int i = 2; i < BOARD_MAX_ROWS-2; i++) {
+            for (int j = 0; j < BOARD_MAX_COLS; j++) {
+                board[i][j] = new EmptyCell();
+            }
+        }
 
         return board;
     }
@@ -110,7 +115,7 @@ public class Board {
         for (int i = 0; i < BOARD_MAX_ROWS; i++) {
             for (int j = 0; j < BOARD_MAX_COLS; j++) {
                 Piece piece = board[i][j].getPiece();
-                if (piece.getTeam() == team) {
+                if (piece != null && piece.getTeam() == team) {
                     pieces.add(piece);
                 }
             }

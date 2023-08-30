@@ -7,6 +7,15 @@
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/util/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/util/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/util/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/engine/pieces/BishopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/engine/pieces/BishopTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/engine/pieces/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/engine/pieces/RookTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,26 +71,67 @@
       <recent name="engine.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in chess">
-    <configuration name="All in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.EqualityTests.testPawn">
+    <configuration name="EqualityTests.testBishop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="equality.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="equality" />
+      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
+      <option name="METHOD_NAME" value="testBishop" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BishopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EqualityTests.testKing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="engine.pieces.*" />
+          <option name="PATTERN" value="equality.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="engine.pieces" />
-      <option name="MAIN_CLASS_NAME" value="engine.pieces.BishopTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="equality" />
+      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
+      <option name="METHOD_NAME" value="testKing" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EqualityTests.testPawn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="equality.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="equality" />
+      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
+      <option name="METHOD_NAME" value="testPawn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EqualityTests.testPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="equality.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="equality" />
+      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
+      <option name="METHOD_NAME" value="testPosition" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,28 +151,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RookTest.testCalculateMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="engine.pieces.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="engine.pieces" />
-      <option name="MAIN_CLASS_NAME" value="engine.pieces.RookTest" />
-      <option name="METHOD_NAME" value="testCalculateMoves" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in chess" />
-        <item itemvalue="JUnit.BishopTest" />
+        <item itemvalue="JUnit.EqualityTests.testPawn" />
+        <item itemvalue="JUnit.EqualityTests.testBishop" />
+        <item itemvalue="JUnit.EqualityTests.testPosition" />
+        <item itemvalue="JUnit.EqualityTests.testKing" />
         <item itemvalue="JUnit.RookTest" />
-        <item itemvalue="JUnit.RookTest.testCalculateMoves" />
       </list>
     </recent_temporary>
   </component>
@@ -147,10 +182,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/engine/pieces/BishopTest.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="2" />
+          <line>15</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/pieces/Knight.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/equality/EqualityTests.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/chess$engine_pieces_in_chess.ic" NAME="engine.pieces in chess Coverage Results" MODIFIED="1693328667327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>engine.pieces.*</FILTER>
+    </SUITE>
   </component>
 </project>

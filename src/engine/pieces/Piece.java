@@ -6,6 +6,7 @@ import engine.board.Move;
 import engine.util.Position;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Piece {
     protected Position position;
@@ -22,5 +23,24 @@ public abstract class Piece {
 
     public Team getTeam() {
         return team;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof Piece)) {
+            return false;
+        }
+
+        Piece p = (Piece) o;
+        return p.position.equals(this.position) && p.team == this.team && p.isFirstMove == this.isFirstMove;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(position, team, isFirstMove);
     }
 }

@@ -60,4 +60,13 @@ public class Queen extends Piece {
             possibleMoves.add(new PassiveMove(board, this, new Position(currX, currY)));
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Queen)) {
+            return false;
+        }
+
+        return super.equals(o);
+    }
 }

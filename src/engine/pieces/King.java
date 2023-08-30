@@ -6,6 +6,7 @@ import engine.util.Position;
 import engine.util.Utility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class King extends Piece{
@@ -36,4 +37,13 @@ public class King extends Piece{
         return possibleMoves;
     }
 
+    @Override
+    public boolean equals(Object o) {
+
+        if (!(o instanceof King)) {
+            return false;
+        }
+        King king = (King) o;
+        return super.equals(o);
+    }
 }

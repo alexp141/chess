@@ -6,6 +6,7 @@ import engine.util.Position;
 import engine.util.Utility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Pawn extends Piece {
@@ -61,5 +62,20 @@ public class Pawn extends Piece {
         }
 
         return possibleMoves;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pawn)) return false;
+        Pawn pawn = (Pawn) o;
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + Arrays.hashCode(offsets);
+        return result;
     }
 }
