@@ -20,7 +20,7 @@ public abstract class Move {
         return this.destination;
     }
     //TODO add equals and hashcode methods
-    public abstract Board executeMove();
+    public abstract void executeMove();
 
-    public abstract Board undoMove();
+    public abstract void undoMove();
 }

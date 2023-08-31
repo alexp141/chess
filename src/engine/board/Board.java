@@ -132,6 +132,10 @@ public class Board {
         this.board[y][x] = new OccupiedCell(piece);
     }
 
+    public void removePiece(int x, int y) {
+        this.board[y][x] = new EmptyCell();
+    }
+
     /**
      * get active pieces for white or black
      * @param team
