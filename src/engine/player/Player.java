@@ -82,11 +82,21 @@ public abstract class Player {
         return this.hasCastled;
     }
 
-    public MoveStatus executeMove(Move move) {
-        //check if move is legal
-        if (!this.possibleMoves.contains(move)) {
-            return MoveStatus.ILLEGAL_MOVE;
+    /**
+     * accepts data of a move sent from the gui and checks if that data matches any of the legal moves the player has access to
+     * @return
+     */
+    public Move getMove(Position start, Position destination) {
+        for (Move move : this.possibleMoves) {
+            if (move.getStart().equals(start) && move.getDestination().equals(destination)) {
+                return move;
+            }
         }
+        System.out.println("returning null move");
+        return null;
+    }
+
+    public MoveStatus executeMove(Move move) {
         //METHOD:
         //make move on board
         //check if currentplayer is in check

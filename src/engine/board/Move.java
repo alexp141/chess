@@ -19,6 +19,14 @@ public abstract class Move {
     public Position getDestination() {
         return this.destination;
     }
+
+    public Position getStart() {
+        return this.start;
+    }
+
+    public Piece getMovingPiece() {
+        return this.movingPiece;
+    }
     //TODO add equals and hashcode methods
     public abstract void executeMove();
 

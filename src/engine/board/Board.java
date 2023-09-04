@@ -24,10 +24,14 @@ public class Board {
 
     private List<Move> whitePossibleMoves;
     private List<Move> blackPossibleMoves;
+    private List<Move> legalMoves;
 
     private Player playerWhite;
     private Player playerBlack;
     private Player currentPlayer;
+    private Player winner;
+    private boolean isGameOver;
+
 
     public Board() {
         this.board = initBoard();
@@ -38,6 +42,9 @@ public class Board {
         this.playerWhite = new PlayerWhite(this, Team.WHITE);
         this.playerBlack = new PlayerBlack(this, Team.BLACK);
         this.currentPlayer = this.playerWhite;
+        this.winner = null;
+        this.isGameOver = false;
+        this.legalMoves = this.whitePossibleMoves;
     }
 
     /**
@@ -61,7 +68,15 @@ public class Board {
             possibleMoves.add(new PassiveMove(board, piece, piece.getPosition(), new Position(x, y)));
         }
     }
-
+/*
+    public void refreshMoveSet() {
+        this.activeWhitePieces = getActivePieces(Team.WHITE);
+        this.activeBlackPieces = getActivePieces(Team.BLACK);
+        this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
+        this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
+        this.legalMoves = this.currentPlayer.getPossibleMoves();
+    }
+*/
     private Cell[][] initBoard() {
         Cell[][] board = new Cell[8][8];
         //black pawns
@@ -206,24 +221,6 @@ public class Board {
             this.currentPlayer = this.playerWhite;
         }
 
+        this.legalMoves = this.currentPlayer.getPossibleMoves();
     }
-    /* will possibly delete this as it is a very expensive operation
-    public Board(Cell[][] gameBoard) {
-        this.activeWhitePieces = getActivePieces(Team.WHITE);
-        this.activeBlackPieces = getActivePieces(Team.BLACK);
-        this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
-        this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
-        this.playerWhite = new PlayerWhite(this, Team.WHITE);
-        this.playerBlack = new PlayerBlack(this, Team.BLACK);
-    }
-
-    public Board createFutureBoard(){
-        Cell[][] copy = copyGameBoard();
-        return new Board(copy);
-    }
-
-    private Cell[][] copyGameBoard() {
-        return this.board.clone();
-    }
-     */
 }

@@ -1,14 +1,13 @@
 package gui;
 
-import engine.board.Board;
-import engine.board.Cell;
-import engine.board.EmptyCell;
-import engine.board.OccupiedCell;
+import engine.board.*;
 import engine.util.Position;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +18,9 @@ public class ChessGUI {
     private Board board;
     private JFrame mainFrame;
     private final Dimension CELL_PANEL_DIM = new Dimension(84, 84);
+    private BoardPanel boardPanel;
+    private CellPanel primarySelection;
+    private CellPanel secondarySelection;
     
     public ChessGUI() {
         this.mainFrame = new JFrame();
@@ -29,7 +31,9 @@ public class ChessGUI {
         this.mainFrame.setIconImage(mainFrameIcon.getImage());
 
         this.board = new Board();
-        BoardPanel boardPanel = new BoardPanel();
+        this.primarySelection = null;
+        this.secondarySelection = null;
+        this.boardPanel = new BoardPanel();
 
         this.mainFrame.add(boardPanel);
         this.mainFrame.pack();
@@ -65,6 +69,15 @@ public class ChessGUI {
         public CellPanel[][] getCellPanels() {
             return this.cells;
         }
+
+        public void refreshBoard() {
+            for (int i = 0; i < Board.BOARD_MAX_ROWS; i++) {
+                for (int j = 0; j < Board.BOARD_MAX_COLS; j++) {
+                    cells[i][j].refreshCell();
+                }
+            }
+            repaint();
+        }
     }
     
     private class CellPanel extends JPanel {
@@ -79,6 +92,7 @@ public class ChessGUI {
             this.setPreferredSize(CELL_PANEL_DIM);
             this.setBackground(this.isLight ? Color.WHITE : Color.BLACK);
             createPieceLabel();
+            addMouseListener(new ClickHandler());
 
         }
 
@@ -88,13 +102,89 @@ public class ChessGUI {
                 label = new JLabel();
                 try {
                     BufferedImage img = ImageIO.read(new File("src/assets/pieces/wp.png")); //read image from file
-                    Image dimg = img.getScaledInstance(64, 64, Image.SCALE_SMOOTH); //scaling the image down
-                    ImageIcon imgIcon = new ImageIcon(dimg); //converting to imageicon
+                    Image dimg = img.getScaledInstance(64, 64, Image.SCALE_SMOOTH); //scaling the image down to preferred width x height
+                    ImageIcon imgIcon = new ImageIcon(dimg); //converting to ImageIcon
                     label.setIcon(imgIcon);
+                    add(label);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                add(label);
+            }
+        }
+
+        protected Position getPosition() {
+            return this.position;
+        }
+
+        protected Cell getBoardCell() {
+            return board.getCellAt(position);
+        }
+
+        private void refreshCell() {
+            this.removeAll();
+            createPieceLabel();
+            validate();
+        }
+
+        private class ClickHandler implements MouseListener {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (primarySelection == null) {
+                    primarySelection = (CellPanel) e.getSource();
+                    Cell cell = board.getCellAt(primarySelection.getPosition());
+                    if (cell instanceof EmptyCell) {
+                        primarySelection = null;
+                        System.out.println("PS = null");
+                    }
+                    else {
+                        if (cell.getPiece().getTeam() == board.getCurrentPlayer().getPlayerTeam()) {
+                            primarySelection = (CellPanel) e.getSource();
+                            System.out.println("PS = new cell");
+                        }
+                    }
+                }
+                else {
+                    secondarySelection = (CellPanel) e.getSource();
+                    Cell cell = board.getCellAt(secondarySelection.getPosition());
+                    if (!(cell instanceof EmptyCell) && cell.getPiece().getTeam() == primarySelection.getBoardCell().getPiece().getTeam()) {
+                        secondarySelection = null;
+                    }
+                    else {
+                        System.out.println("SS set");
+                        Move move = board.getCurrentPlayer().getMove(primarySelection.getPosition(), secondarySelection.getPosition());
+                        if (move != null) {
+                            board.getCurrentPlayer().executeMove(move);
+                        }
+                        primarySelection = null;
+                        System.out.println("PS = null");
+                        secondarySelection = null;
+                        System.out.println("SS = null");
+                        boardPanel.refreshBoard();
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
             }
         }
     }
