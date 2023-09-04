@@ -1,0 +1,101 @@
+package gui;
+
+import engine.board.Board;
+import engine.board.Cell;
+import engine.board.EmptyCell;
+import engine.board.OccupiedCell;
+import engine.util.Position;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+public class ChessGUI {
+
+    private Board board;
+    private JFrame mainFrame;
+    private final Dimension CELL_PANEL_DIM = new Dimension(84, 84);
+    
+    public ChessGUI() {
+        this.mainFrame = new JFrame();
+        this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.mainFrame.setTitle("Java Chess");
+        this.mainFrame.setLayout(new BorderLayout());
+        ImageIcon mainFrameIcon = new ImageIcon("assets/w_pawn_1x_ns.png");
+        this.mainFrame.setIconImage(mainFrameIcon.getImage());
+
+        this.board = new Board();
+        BoardPanel boardPanel = new BoardPanel();
+
+        this.mainFrame.add(boardPanel);
+        this.mainFrame.pack();
+        this.mainFrame.setVisible(true);
+    }
+
+    private class BoardPanel extends JPanel {
+
+        private CellPanel[][] cells;
+
+        BoardPanel() {
+            this.setLayout(new GridLayout(8,8,0,0));
+            this.cells = createCellGrid();
+            
+        }
+
+        private CellPanel[][] createCellGrid() {
+            CellPanel[][] cells = new CellPanel[8][8];
+
+            boolean isLight = true;
+            for (int i = 0; i < Board.BOARD_MAX_ROWS; i++) {
+                for (int j = 0; j < Board.BOARD_MAX_COLS; j++) {
+                    CellPanel cPanel = new CellPanel(isLight, new Position(j,i));
+                    cells[i][j] = cPanel;
+                    this.add(cPanel);
+                    isLight = !isLight;
+                }
+                isLight = !isLight;
+            }
+            return cells;
+        }
+
+        public CellPanel[][] getCellPanels() {
+            return this.cells;
+        }
+    }
+    
+    private class CellPanel extends JPanel {
+        private Position position;
+        private boolean isLight;
+        private JLabel label;
+
+        CellPanel(boolean isLight, Position position) {
+            this.position = position;
+            this.isLight = isLight;
+            this.setLayout(new GridBagLayout());
+            this.setPreferredSize(CELL_PANEL_DIM);
+            this.setBackground(this.isLight ? Color.WHITE : Color.BLACK);
+            createPieceLabel();
+
+        }
+
+        private void createPieceLabel() {
+            Cell cell = board.getCellAt(this.position.getX(), this.position.getY());
+            if (cell instanceof OccupiedCell) {
+                label = new JLabel();
+                try {
+                    BufferedImage img = ImageIO.read(new File("src/assets/pieces/wp.png")); //read image from file
+                    Image dimg = img.getScaledInstance(64, 64, Image.SCALE_SMOOTH); //scaling the image down
+                    ImageIcon imgIcon = new ImageIcon(dimg); //converting to imageicon
+                    label.setIcon(imgIcon);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                add(label);
+            }
+        }
+    }
+}
