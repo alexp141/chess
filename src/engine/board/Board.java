@@ -24,7 +24,6 @@ public class Board {
 
     private List<Move> whitePossibleMoves;
     private List<Move> blackPossibleMoves;
-    private List<Move> legalMoves;
 
     private Player playerWhite;
     private Player playerBlack;
@@ -44,7 +43,6 @@ public class Board {
         this.currentPlayer = this.playerWhite;
         this.winner = null;
         this.isGameOver = false;
-        this.legalMoves = this.whitePossibleMoves;
     }
 
     /**
@@ -55,17 +53,21 @@ public class Board {
      * @param x
      * @param y
      * @param possibleMoves
+     * @return returns true if cell is empty and if checkLine() can continue using this method in its calculation
      */
-    public static void calculateMoveType(Board board, Piece piece, int x, int y, List<Move> possibleMoves) {
+    public static boolean calculateMoveType(Board board, Piece piece, int x, int y, List<Move> possibleMoves) {
         Cell destinationCell = board.getCellAt(x, y);
         if (destinationCell.isOccupied()) {
             Piece pieceAtDestination = destinationCell.getPiece();
             if (pieceAtDestination.getTeam() != piece.getTeam()) {
                 possibleMoves.add(new AttackMove(board, piece, piece.getPosition(), new Position(x, y), pieceAtDestination));
             }
+            return false;
+
         }
         else {
             possibleMoves.add(new PassiveMove(board, piece, piece.getPosition(), new Position(x, y)));
+            return true;
         }
     }
 /*
@@ -125,6 +127,14 @@ public class Board {
 
     public List<Piece> getActiveBlackPieces() {
         return this.activeBlackPieces;
+    }
+
+    public List<Move> getWhitePossibleMoves() {
+        return this.whitePossibleMoves;
+    }
+
+    public List<Move> getBlackPossibleMoves() {
+        return this.blackPossibleMoves;
     }
 
     public Cell getCellAt(Position position) {
@@ -220,7 +230,6 @@ public class Board {
         else {
             this.currentPlayer = this.playerWhite;
         }
-
-        this.legalMoves = this.currentPlayer.getPossibleMoves();
+        this.currentPlayer.updatePossibleMoves();
     }
 }

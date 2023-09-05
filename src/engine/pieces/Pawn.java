@@ -51,13 +51,15 @@ public class Pawn extends Piece {
                 if (destinationCell.isOccupied()) {
                     Piece pieceAtDestination = destinationCell.getPiece();
                     if (pieceAtDestination.getTeam() != this.getTeam()) {
-                        possibleMoves.add(new AttackMove(board, this, this.getPosition(), new Position(x, y), pieceAtDestination));
+                        possibleMoves.add(new AttackMove(board, this,
+                                this.getPosition(),
+                                new Position(pieceAtDestination.position.getX(), pieceAtDestination.position.getY()),
+                                pieceAtDestination));
                     }
                 }
             }
             //frontal double move
-            else if ((x == 0 && y == -2) && this.isFirstMove && ((this.getTeam() == Team.BLACK && this.position.getX() == Board.BOARD_SECOND_ROW) ||
-                    this.getTeam() == Team.WHITE && this.position.getX() == Board.BOARD_SEVENTH_ROW)) {
+            else if ((x == 0 && y == -2) && this.isFirstMove) {
                 Cell destinationCell = board.getCellAt(destination.getX(), destination.getY());
                 if (!destinationCell.isOccupied()) {
                     //check if cell behind destination is occupied

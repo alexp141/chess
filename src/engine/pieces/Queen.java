@@ -53,8 +53,9 @@ public class Queen extends Piece {
             return;
         }
 
-        Board.calculateMoveType(board, this, currX, currY, possibleMoves);
-        checkLine(board, possibleMoves, currX + dx, currY + dy, dx , dy);
+        if (Board.calculateMoveType(board, this, currX, currY, possibleMoves)) {
+            checkLine(board, possibleMoves, currX + dx, currY + dy, dx, dy);
+        }
 
     }
 

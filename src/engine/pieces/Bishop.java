@@ -45,8 +45,9 @@ public class Bishop extends Piece {
             return;
         }
         //TODO need to make sure this stops after encountering an occupied cell, make calculateMoveType return a boolean
-        Board.calculateMoveType(board, this, currX, currY, possibleMoves);
-        checkLine(board, possibleMoves, currX + dx, currY + dy, dx , dy);
+        if(Board.calculateMoveType(board, this, currX, currY, possibleMoves)) {
+            checkLine(board, possibleMoves, currX + dx, currY + dy, dx, dy);
+        }
 
     }
 

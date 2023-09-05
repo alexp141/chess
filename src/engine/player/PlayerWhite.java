@@ -13,7 +13,7 @@ public class PlayerWhite extends Player {
         super(board, team);
         this.playerKing = getPlayerKing();
         this.activePieces = getActivePieces();
-        this.possibleMoves = getPossibleMoves();
+        updatePossibleMoves();
     }
 
     @Override

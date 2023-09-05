@@ -49,8 +49,8 @@ public abstract class Player {
         return this.playerKing;
     }
 
-    public List<Move> getPossibleMoves() {
-        return this.board.getPossibleMoves(this.activePieces);
+    public void updatePossibleMoves() {
+        this.possibleMoves = this.board.getPossibleMoves(this.activePieces);
     }
 
     public boolean isChecked() {
