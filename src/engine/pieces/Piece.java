@@ -21,6 +21,7 @@ public abstract class Piece {
 
     public abstract Piece copy();
     public abstract List<Move> calculateMoves(Board board);
+    public abstract String getPieceFilename();
 
     public Team getTeam() {
         return team;

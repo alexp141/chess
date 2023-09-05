@@ -14,6 +14,11 @@ public class Rook extends Piece {
     }
 
     @Override
+    public String getPieceFilename() {
+        return getTeam() == Team.WHITE ? "wr.png" : "br.png";
+    }
+
+    @Override
     public Piece copy() {
         return new Rook(new Position(this.position), team);
     }

@@ -17,6 +17,11 @@ public class Pawn extends Piece {
     }
 
     @Override
+    public String getPieceFilename() {
+        return getTeam() == Team.WHITE ? "wp.png" : "bp.png";
+    }
+
+    @Override
     public Piece copy() {
         return new Pawn(new Position(this.position), team);
     }

@@ -16,6 +16,11 @@ public class Knight extends Piece{
     }
 
     @Override
+    public String getPieceFilename() {
+        return getTeam() == Team.WHITE ? "wkn.png" : "bkn.png";
+    }
+
+    @Override
     public Piece copy() {
         return new Knight(new Position(this.position), team);
     }

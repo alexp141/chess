@@ -18,9 +18,11 @@ public class ChessGUI {
     private Board board;
     private JFrame mainFrame;
     private final Dimension CELL_PANEL_DIM = new Dimension(84, 84);
+    private final String PIECE_PREFIX_PATH = "src/assets/pieces/";
     private BoardPanel boardPanel;
     private CellPanel primarySelection;
     private CellPanel secondarySelection;
+
     
     public ChessGUI() {
         this.mainFrame = new JFrame();
@@ -99,9 +101,10 @@ public class ChessGUI {
         private void createPieceLabel() {
             Cell cell = board.getCellAt(this.position.getX(), this.position.getY());
             if (cell instanceof OccupiedCell) {
+                String pieceName = cell.getPiece().getPieceFilename();
                 label = new JLabel();
                 try {
-                    BufferedImage img = ImageIO.read(new File("src/assets/pieces/wp.png")); //read image from file
+                    BufferedImage img = ImageIO.read(new File(PIECE_PREFIX_PATH + pieceName)); //read image from file
                     Image dimg = img.getScaledInstance(64, 64, Image.SCALE_SMOOTH); //scaling the image down to preferred width x height
                     ImageIcon imgIcon = new ImageIcon(dimg); //converting to ImageIcon
                     label.setIcon(imgIcon);

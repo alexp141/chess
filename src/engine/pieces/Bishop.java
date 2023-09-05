@@ -35,6 +35,11 @@ public class Bishop extends Piece {
         return possibleMoves;
     }
 
+    @Override
+    public String getPieceFilename() {
+        return getTeam() == Team.WHITE ? "wb.png" : "bb.png";
+    }
+
     private void checkLine(Board board, List<Move> possibleMoves, int currX, int currY, int dx, int dy) {
         if(!Utility.checkIfInBounds(currX,currY)) {
             return;

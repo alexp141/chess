@@ -15,6 +15,11 @@ public class King extends Piece{
     }
 
     @Override
+    public String getPieceFilename() {
+        return getTeam() == Team.WHITE ? "wk.png" : "bk.png";
+    }
+
+    @Override
     public Piece copy() {
         return new King(new Position(this.position), team);
     }
