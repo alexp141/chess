@@ -42,7 +42,10 @@ public class Pawn extends Piece {
             }
             //frontal single move
             if(x == 0 && y == -1) {
-                Board.calculateMoveType(board, this, destination.getX(), destination.getY(), possibleMoves);
+                Cell destinationCell = board.getCellAt(destination.getX(), destination.getY());
+                if (!destinationCell.isOccupied()) {
+                    possibleMoves.add(new PassiveMove(board, this, this.getPosition(), destination));
+                }
             }
             //diagonal attacks
             else if (x == -1 && y == -1 || x == 1 && y == -1) {
