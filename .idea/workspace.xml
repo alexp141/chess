@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/player/PlayerBlack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/player/PlayerBlack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/player/PlayerWhite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/player/PlayerWhite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ChessGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ChessGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,38 +92,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EqualityTests.testPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="equality.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="equality" />
-      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
-      <option name="METHOD_NAME" value="testPosition" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EqualityTests.testRook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="equality.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="equality" />
-      <option name="MAIN_CLASS_NAME" value="equality.EqualityTests" />
-      <option name="METHOD_NAME" value="testRook" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RookTest.testCalculateMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -133,13 +108,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="gameTests.gameTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game" />
+      <option name="MAIN_CLASS_NAME" value="game.gameTests" />
+      <option name="METHOD_NAME" value="gameTest1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gameTests.testPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game" />
+      <option name="MAIN_CLASS_NAME" value="game.gameTests" />
+      <option name="METHOD_NAME" value="testPosition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.gameTests.gameTest1" />
+        <item itemvalue="JUnit.gameTests.testPosition" />
         <item itemvalue="JUnit.All in chess" />
         <item itemvalue="JUnit.RookTest.testCalculateMoves" />
-        <item itemvalue="JUnit.EqualityTests.testRook" />
-        <item itemvalue="JUnit.EqualityTests.testPosition" />
       </list>
     </recent_temporary>
   </component>
@@ -173,9 +180,29 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/game/gameTests.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/game/gameTests.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/game/gameTests.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/player/Player.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/ChessGUI.java</url>
-          <line>167</line>
-          <option name="timeStamp" value="15" />
+          <line>169</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -6,6 +6,7 @@ import engine.util.Position;
 import engine.util.Utility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class King extends Piece{
@@ -37,9 +38,28 @@ public class King extends Piece{
                 continue;
             }
 
-            Board.calculateMoveType(board,this, destination.getX(), destination.getY(), possibleMoves);
-        }
+            Cell destinationCell = board.getCellAt(destination.getX(), destination.getY());
+            if (this.getTeam() == Team.WHITE) {
+                if (destinationCell.isAttackedByBlack())
+                    continue;
+            }
+            else {
+                if (destinationCell.isAttackedByWhite())
+                    continue;
+            }
 
+            if (destinationCell.isOccupied()) {
+                Piece pieceAtDestination = destinationCell.getPiece();
+                if (pieceAtDestination.getTeam() != this.getTeam()) {
+                    possibleMoves.add(new AttackMove(board, this, new Position(this.position), new Position(destination.getX(), destination.getY()), pieceAtDestination));
+                }
+
+            }
+            else {
+                possibleMoves.add(new PassiveMove(board, this, new Position(this.position), new Position(destination.getX(), destination.getY())));
+            }
+        }
+        //TODO CASTLING MOVES
         if (this.isFirstMove) {
             //castle move
         }
@@ -55,4 +75,12 @@ public class King extends Piece{
         King king = (King) o;
         return super.equals(o);
     }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + Arrays.hashCode(offsets);
+        return result;
+    }
+
 }

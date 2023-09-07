@@ -105,8 +105,8 @@ public class ChessGUI {
                 label = new JLabel();
                 try {
                     BufferedImage img = ImageIO.read(new File(PIECE_PREFIX_PATH + pieceName)); //read image from file
-                    Image dimg = img.getScaledInstance(64, 64, Image.SCALE_SMOOTH); //scaling the image down to preferred width x height
-                    ImageIcon imgIcon = new ImageIcon(dimg); //converting to ImageIcon
+                    Image scaledImg = img.getScaledInstance(64, 64, Image.SCALE_SMOOTH); //scaling the image down to preferred width x height
+                    ImageIcon imgIcon = new ImageIcon(scaledImg); //converting to ImageIcon
                     label.setIcon(imgIcon);
                     add(label);
                 } catch (IOException e) {

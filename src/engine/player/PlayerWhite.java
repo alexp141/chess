@@ -9,11 +9,11 @@ import engine.pieces.Piece;
 import java.util.List;
 
 public class PlayerWhite extends Player {
-    public PlayerWhite(Board board, Team team) {
-        super(board, team);
+    public PlayerWhite(Board board, Team team, List<Move> whitePossibleMoves) {
+        super(board, team, whitePossibleMoves);
         this.playerKing = getPlayerKing();
         this.activePieces = getActivePieces();
-        updatePossibleMoves();
+        this.possibleMoves = whitePossibleMoves;
     }
 
     @Override
@@ -21,8 +21,4 @@ public class PlayerWhite extends Player {
         return this.board.getActivePieces(Team.WHITE);
     }
 
-    @Override
-    public List<Move> getOpponentMoves() {
-        return this.board.getPossibleMoves(this.board.getActiveBlackPieces());
-    }
 }

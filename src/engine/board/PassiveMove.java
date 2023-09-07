@@ -14,6 +14,8 @@ public class PassiveMove extends Move {
         this.board.placePiece(movingPiece, destination.getX(), destination.getY());
         this.board.removePiece(start.getX(), start.getY());
         movingPiece.getPosition().updatePosition(destination.getX(),destination.getY());
+        this.board.updatePossibleMovesWhite();
+        this.board.updatePossibleMovesBlack();
         this.board.updateCellData();
     }
 
@@ -22,6 +24,8 @@ public class PassiveMove extends Move {
         this.board.placePiece(movingPiece, start.getX(), start.getY());
         movingPiece.getPosition().updatePosition(start.getX(), start.getY());
         this.board.removePiece(destination.getX(), destination.getY());
+        this.board.updatePossibleMovesWhite();
+        this.board.updatePossibleMovesBlack();
         this.board.updateCellData();
     }
 

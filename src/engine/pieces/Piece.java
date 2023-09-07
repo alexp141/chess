@@ -31,6 +31,10 @@ public abstract class Piece {
         return this.position;
     }
 
+    public void setPieceMoved() {
+        this.isFirstMove = false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

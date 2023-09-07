@@ -20,7 +20,7 @@ public abstract class Player {
     private boolean hasCastled;
     private boolean isChecked;
 
-    public Player(Board board, Team team) {
+    public Player(Board board, Team team, List<Move> whitePossibleMoves) {
         this.board = board;
         this.activePieces = board.getActivePieces(team);
         this.team = team;
@@ -30,7 +30,6 @@ public abstract class Player {
 
     public abstract List<Piece> getActivePieces();
 
-    public abstract List<Move> getOpponentMoves();
 
     public Team getPlayerTeam() {
         return this.team;
@@ -49,8 +48,8 @@ public abstract class Player {
         return this.playerKing;
     }
 
-    public void updatePossibleMoves() {
-        this.possibleMoves = this.board.getPossibleMoves(this.activePieces);
+    public List<Move> getPossibleMoves() {
+        return this.possibleMoves;
     }
 
     public boolean isChecked() {
@@ -106,10 +105,13 @@ public abstract class Player {
 
         if (isChecked()) {
             //undo
+            System.out.println("illegal move");
+            move.undoMove();
             return MoveStatus.ILLEGAL_MOVE;
         }
         else {
             this.board.switchPlayers();
+            move.getMovingPiece().setPieceMoved();
             return MoveStatus.LEGAL_MOVE;
         }
 

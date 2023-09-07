@@ -36,10 +36,12 @@ public class Board {
         this.board = initBoard();
         this.activeWhitePieces = getActivePieces(Team.WHITE);
         this.activeBlackPieces = getActivePieces(Team.BLACK);
-        this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
-        this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
-        this.playerWhite = new PlayerWhite(this, Team.WHITE);
-        this.playerBlack = new PlayerBlack(this, Team.BLACK);
+        this.whitePossibleMoves = new ArrayList<>();
+        this.blackPossibleMoves = new ArrayList<>();
+        updatePossibleMovesWhite();
+        updatePossibleMovesBlack();
+        this.playerWhite = new PlayerWhite(this, Team.WHITE, this.whitePossibleMoves);
+        this.playerBlack = new PlayerBlack(this, Team.BLACK, this.blackPossibleMoves);
         this.currentPlayer = this.playerWhite;
         this.winner = null;
         this.isGameOver = false;
@@ -181,14 +183,24 @@ public class Board {
         return pieces;
     }
 
-    public List<Move> getPossibleMoves(List<Piece> teamPieces) {
-        List<Move> possibleMoves = new ArrayList<>();
+    public void updatePossibleMovesWhite() {
+        this.whitePossibleMoves.clear();
 
-        for (Piece piece : teamPieces) {
-            possibleMoves.addAll(piece.calculateMoves(this));
+        for (Piece piece : this.activeWhitePieces) {
+           this.whitePossibleMoves.addAll(piece.calculateMoves(this));
         }
-        return possibleMoves;
+
     }
+
+    public void updatePossibleMovesBlack() {
+        this.blackPossibleMoves.clear();
+
+        for (Piece piece : this.activeBlackPieces) {
+            this.blackPossibleMoves.addAll(piece.calculateMoves(this));
+        }
+
+    }
+
 
     /**
      * keeps track of which cells are being attacked by white or black pieces
@@ -230,6 +242,6 @@ public class Board {
         else {
             this.currentPlayer = this.playerWhite;
         }
-        this.currentPlayer.updatePossibleMoves();
+
     }
 }
