@@ -12,7 +12,9 @@ public class PassiveMove extends Move {
     @Override
     public void executeMove() {
         this.board.placePiece(movingPiece, destination.getX(), destination.getY());
+        System.out.println(this.board.toString());
         this.board.removePiece(start.getX(), start.getY());
+        System.out.println(this.board.toString());
         movingPiece.getPosition().updatePosition(destination.getX(),destination.getY());
         this.board.updatePossibleMovesWhite();
         this.board.updatePossibleMovesBlack();

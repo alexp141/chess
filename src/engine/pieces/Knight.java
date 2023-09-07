@@ -58,4 +58,9 @@ public class Knight extends Piece{
         result = 31 * result + Arrays.hashCode(offsets);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "N";
+    }
 }

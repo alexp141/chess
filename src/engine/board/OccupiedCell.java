@@ -31,5 +31,9 @@ public class OccupiedCell extends Cell {
         return new OccupiedCell(piece.copy());
     }
 
+    @Override
+    public String toString() {
+        return this.piece.toString();
+    }
 
 }

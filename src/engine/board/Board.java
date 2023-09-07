@@ -68,7 +68,7 @@ public class Board {
 
         }
         else {
-            possibleMoves.add(new PassiveMove(board, piece, piece.getPosition(), new Position(x, y)));
+            possibleMoves.add(new PassiveMove(board, piece, new Position(piece.getPosition()), new Position(x, y)));
             return true;
         }
     }
@@ -243,5 +243,17 @@ public class Board {
             this.currentPlayer = this.playerWhite;
         }
 
+    }
+
+    @Override
+    public String toString() {
+        String ret = "";
+        for (int i = 0; i < BOARD_MAX_ROWS; i++) {
+            for (int j = 0; j < BOARD_MAX_COLS; j++) {
+                ret += " " + board[i][j].toString();
+            }
+            ret += "\n";
+        }
+        return ret;
     }
 }

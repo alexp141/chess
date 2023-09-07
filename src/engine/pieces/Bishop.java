@@ -65,4 +65,9 @@ public class Bishop extends Piece {
     public int hashCode() {
         return super.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "B";
+    }
 }

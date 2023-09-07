@@ -31,7 +31,7 @@ public class gameTests {
         Position bp3_dest = new Position(bp3.getPosition().getX(), bp3.getPosition().getY() + 2);
         Position wp5_dest = new Position(wp5.getPosition().getX(), wp5.getPosition().getY() - 2);
         Position bq_dest = new Position(bq.getPosition().getX() - 3, bq.getPosition().getY() + 3);
-        Position wk_dest = new Position(wk.getPosition().getX(), wk.getPosition().getY() - 1);
+        Position wk_dest = new Position(wk.getPosition().getX() - 1, wk.getPosition().getY() - 1);
 
         Move m1 = new PassiveMove(board, wp4, wp4.getPosition(), wp4_dest);
         assertTrue(p.executeMove(m1) == MoveStatus.LEGAL_MOVE);
@@ -60,8 +60,11 @@ public class gameTests {
         assertTrue(board.getCellAt(bq_dest).isOccupied());
         p = board.getCurrentPlayer();
 
+        System.out.println(board.toString());
+
         Move m5 = new PassiveMove(board, wk, wk.getPosition(), wk_dest);
         assertTrue(p.executeMove(m5) == MoveStatus.ILLEGAL_MOVE);
+        System.out.println(board.toString());
         assertTrue(board.getCellAt(4, 7).isOccupied());
         assertTrue(!board.getCellAt(wk_dest).isOccupied());
         p = board.getCurrentPlayer();

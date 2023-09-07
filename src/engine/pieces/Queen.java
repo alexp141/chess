@@ -67,4 +67,9 @@ public class Queen extends Piece {
 
         return super.equals(o);
     }
+
+    @Override
+    public String toString() {
+        return "Q";
+    }
 }

@@ -19,4 +19,9 @@ public class EmptyCell extends Cell{
     public Cell copy() {
         return new EmptyCell();
     }
+
+    @Override
+    public String toString() {
+        return "-";
+    }
 }

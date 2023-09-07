@@ -60,4 +60,9 @@ public class Rook extends Piece {
 
         return super.equals(o);
     }
+
+    @Override
+    public String toString() {
+        return "R";
+    }
 }
