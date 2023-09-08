@@ -33,14 +33,14 @@ public class gameTests {
         Position bq_dest = new Position(bq.getPosition().getX() - 3, bq.getPosition().getY() + 3);
         Position wk_dest = new Position(wk.getPosition().getX() - 1, wk.getPosition().getY() - 1);
 
-        Move m1 = new PassiveMove(board, wp4, wp4.getPosition(), wp4_dest);
+        Move m1 = new PassiveMove(board, wp4, new Position(wp4.getPosition()), wp4_dest);
         assertTrue(p.executeMove(m1) == MoveStatus.LEGAL_MOVE);
         assertTrue(!board.getCellAt(3, 6).isOccupied());
         assertTrue(board.getCellAt(wp4_dest).isOccupied());
 
         p = board.getCurrentPlayer();
 
-        Move m2 = new PassiveMove(board, bp3, bp3.getPosition(), bp3_dest);
+        Move m2 = new PassiveMove(board, bp3, new Position(bp3.getPosition()), bp3_dest);
         assertTrue(p.executeMove(m2) == MoveStatus.LEGAL_MOVE);
         assertTrue(!board.getCellAt(2, 1).isOccupied());
         assertTrue(board.getCellAt(bp3_dest).isOccupied());
@@ -48,13 +48,13 @@ public class gameTests {
 
         //assertTrue(board.getWhitePossibleMoves().size() == 26);
 
-        Move m3 = new PassiveMove(board, wp5, wp5.getPosition(), wp5_dest);
+        Move m3 = new PassiveMove(board, wp5, new Position(wp5.getPosition()), wp5_dest);
         assertTrue(p.executeMove(m3) == MoveStatus.LEGAL_MOVE);
         assertTrue(!board.getCellAt(4, 6).isOccupied());
         assertTrue(board.getCellAt(wp5_dest).isOccupied());
         p = board.getCurrentPlayer();
 
-        Move m4 = new PassiveMove(board, bq, bq.getPosition(), bq_dest);
+        Move m4 = new PassiveMove(board, bq, new Position(bq.getPosition()), bq_dest);
         assertTrue(p.executeMove(m4) == MoveStatus.LEGAL_MOVE);
         assertTrue(!board.getCellAt(3, 0).isOccupied());
         assertTrue(board.getCellAt(bq_dest).isOccupied());
@@ -62,7 +62,7 @@ public class gameTests {
 
         System.out.println(board.toString());
 
-        Move m5 = new PassiveMove(board, wk, wk.getPosition(), wk_dest);
+        Move m5 = new PassiveMove(board, wk, new Position(wk.getPosition()), wk_dest);
         assertTrue(p.executeMove(m5) == MoveStatus.ILLEGAL_MOVE);
         System.out.println(board.toString());
         assertTrue(board.getCellAt(4, 7).isOccupied());

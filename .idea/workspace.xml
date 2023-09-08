@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/board/EmptyCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/EmptyCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/board/OccupiedCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/OccupiedCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/game/gameTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/game/gameTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +70,7 @@
       <recent name="engine.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.gameTests.gameTest1">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="chess" />
@@ -145,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.gameTests.gameTest1" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.gameTests.gameTest1" />
         <item itemvalue="JUnit.gameTests.testPosition" />
         <item itemvalue="JUnit.All in chess" />
         <item itemvalue="JUnit.RookTest.testCalculateMoves" />
@@ -183,11 +174,6 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/game/gameTests.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/engine/player/Player.java</url>
           <line>93</line>
           <option name="timeStamp" value="25" />
@@ -197,12 +183,20 @@
           <line>169</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/game/gameTests.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chess$engine_pieces_in_chess.ic" NAME="engine.pieces in chess Coverage Results" MODIFIED="1693328667327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>engine.pieces.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/chess$gameTests_gameTest1.ic" NAME="gameTests.gameTest1 Coverage Results" MODIFIED="1694148735323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>game.*</FILTER>
     </SUITE>
   </component>
 </project>
