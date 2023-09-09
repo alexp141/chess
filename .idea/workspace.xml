@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="71e1832d-d129-4ccc-861a-215755b36415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/PassiveMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/game/gameTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/game/gameTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/board/AttackMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board/AttackMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ChessGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ChessGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +181,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/ChessGUI.java</url>
-          <line>169</line>
+          <line>183</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

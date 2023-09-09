@@ -17,6 +17,9 @@ public class AttackMove extends Move {
         this.board.removePiece(start.getX(), start.getY());
         movingPiece.getPosition().updatePosition(destination.getX(),destination.getY());
         attacked.getPosition().updatePosition(-1,-1);
+        this.board.updatePossibleMovesWhite();
+        this.board.updatePossibleMovesBlack();
+        this.board.updateCellData();
 
     }
 
@@ -26,6 +29,9 @@ public class AttackMove extends Move {
         movingPiece.getPosition().updatePosition(start.getX(), start.getY());
         this.board.placePiece(attacked, destination.getX(), destination.getY());
         attacked.getPosition().updatePosition(destination.getX(), destination.getY());
+        this.board.updatePossibleMovesWhite();
+        this.board.updatePossibleMovesBlack();
+        this.board.updateCellData();
 
     }
 }

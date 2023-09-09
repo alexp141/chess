@@ -39,7 +39,7 @@ public class King extends Piece{
             }
 
             Cell destinationCell = board.getCellAt(destination.getX(), destination.getY());
-            if (this.getTeam() == Team.WHITE) {
+            if (this.team == Team.WHITE) {
                 if (destinationCell.isAttackedByBlack())
                     continue;
             }
@@ -61,7 +61,20 @@ public class King extends Piece{
         }
         //TODO CASTLING MOVES
         if (this.isFirstMove) {
-            //castle move
+            if (this.team == Team.WHITE) {
+                Cell r1 = board.getCellAt(5,7);
+                Cell r2 = board.getCellAt(6,7);
+                Cell r3 = board.getCellAt(7,7);
+                if (!r1.isOccupied() && !r1.isAttackedByBlack() && !r2.isOccupied() && !r2.isAttackedByBlack()) {
+                    Piece rPiece = r3.getPiece();
+                    if (rPiece instanceof Rook && rPiece.getTeam() == Team.WHITE && rPiece.isFirstMove) {
+                        possibleMoves.add(new KingsideCastle(board, this, new Position(this.position), new Position(6,7), rPiece));
+                    }
+                }
+            }
+            else {
+
+            }
         }
         return possibleMoves;
     }

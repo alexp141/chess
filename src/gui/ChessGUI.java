@@ -1,6 +1,8 @@
 package gui;
 
 import engine.board.*;
+import engine.pieces.King;
+import engine.pieces.Rook;
 import engine.util.Position;
 
 import javax.imageio.ImageIO;
@@ -160,6 +162,18 @@ public class ChessGUI {
                 else {
                     secondarySelection = (CellPanel) e.getSource();
                     Cell cell = board.getCellAt(secondarySelection.getPosition());
+                    if (secondarySelection.getBoardCell().getPiece() instanceof Rook && primarySelection.getBoardCell().getPiece() instanceof King) {
+                        System.out.println("SS set");
+                        Move move = board.getCurrentPlayer().getMove(primarySelection.getPosition(), secondarySelection.getPosition());
+                        if (move != null) {
+                            board.getCurrentPlayer().executeMove(move);
+                        }
+                        primarySelection = null;
+                        System.out.println("PS = null");
+                        secondarySelection = null;
+                        System.out.println("SS = null");
+                        boardPanel.refreshBoard();
+                    }
                     if (!(cell instanceof EmptyCell) && cell.getPiece().getTeam() == primarySelection.getBoardCell().getPiece().getTeam()) {
                         secondarySelection = null;
                     }
