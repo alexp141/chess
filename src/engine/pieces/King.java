@@ -93,6 +93,17 @@ public class King extends Piece{
                         possibleMoves.add(new KingsideCastle(board, this, new Position(this.position), new Position(6,0), rPiece));
                     }
                 }
+                r1 = r2 = r3 = null;
+                Cell l1 = board.getCellAt(3, 0);
+                Cell l2 = board.getCellAt(2, 0);
+                Cell l3 = board.getCellAt(1, 0);
+                Cell l4 = board.getCellAt(0, 0);
+                if (!l1.isOccupied() && !l1.isAttackedByWhite() && !l2.isOccupied() && !l2.isAttackedByWhite() && !l3.isOccupied() && !l3.isAttackedByWhite()) {
+                    Piece rook = l4.getPiece();
+                    if (rook instanceof Rook && rook.getTeam() == Team.BLACK && rook.isFirstMove) {
+                        possibleMoves.add(new QueensideCastle(board, this, new Position(this.position), new Position(2, 0), rook));
+                    }
+                }
             }
         }
         return possibleMoves;
