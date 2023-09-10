@@ -34,6 +34,9 @@ public abstract class Piece {
     public void setPieceMoved() {
         this.isFirstMove = false;
     }
+    public void unsetPieceMoved() {
+        this.isFirstMove = true;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,10 +1,7 @@
 package engine.player;
 
 import engine.Team;
-import engine.board.Board;
-import engine.board.Cell;
-import engine.board.Move;
-import engine.board.MoveStatus;
+import engine.board.*;
 import engine.pieces.King;
 import engine.pieces.Piece;
 import engine.util.Position;

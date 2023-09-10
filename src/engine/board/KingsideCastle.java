@@ -24,6 +24,7 @@ public class KingsideCastle extends Move {
         rook.getPosition().updatePosition(start.getX() + 1,start.getY());
         this.board.removePiece(start.getX(), start.getY());
         this.board.removePiece(destination.getX() + 1, destination.getY());
+        rook.setPieceMoved();
         this.board.updatePossibleMovesWhite();
         this.board.updatePossibleMovesBlack();
         this.board.updateCellData();
@@ -39,6 +40,7 @@ public class KingsideCastle extends Move {
         rook.getPosition().updatePosition(destination.getX() + 1,destination.getY());
         this.board.removePiece(destination.getX(), destination.getY());
         this.board.removePiece(start.getX() + 1, start.getY());
+        rook.unsetPieceMoved();
         this.board.updatePossibleMovesWhite();
         this.board.updatePossibleMovesBlack();
         this.board.updateCellData();

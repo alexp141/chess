@@ -1,6 +1,8 @@
 package engine.board;
 
+import engine.Team;
 import engine.pieces.Piece;
+import engine.player.Player;
 import engine.util.Position;
 
 public abstract class Move {
