@@ -44,7 +44,7 @@ public class Pawn extends Piece {
             if(x == 0 && y == -1) {
                 Cell destinationCell = board.getCellAt(destination.getX(), destination.getY());
                 if (!destinationCell.isOccupied()) {
-                    possibleMoves.add(new PassiveMove(board, this, this.getPosition(), destination));
+                    possibleMoves.add(new PassiveMove(board, this, new Position(this.getPosition()), destination));
                 }
             }
             //diagonal attacks
@@ -55,7 +55,7 @@ public class Pawn extends Piece {
                     Piece pieceAtDestination = destinationCell.getPiece();
                     if (pieceAtDestination.getTeam() != this.getTeam()) {
                         possibleMoves.add(new AttackMove(board, this,
-                                this.getPosition(),
+                                new Position(this.getPosition()),
                                 new Position(pieceAtDestination.position.getX(), pieceAtDestination.position.getY()),
                                 pieceAtDestination));
                     }
@@ -68,7 +68,7 @@ public class Pawn extends Piece {
                     //check if cell behind destination is occupied
                     Cell cellBehindDestination = board.getCellAt(destination.getX() - dx, destination.getY());
                     if (!cellBehindDestination.isOccupied()) {
-                        possibleMoves.add(new PassiveMove(board, this, this.getPosition(), destination));
+                        possibleMoves.add(new PassiveMove(board, this, new Position(this.getPosition()), destination));
                     }
                 }
             }

@@ -242,7 +242,14 @@ public class Board {
         else {
             this.currentPlayer = this.playerWhite;
         }
+        if (this.currentPlayer.isCheckmated()) {
+            this.isGameOver = true;
+            this.winner = this.currentPlayer == playerWhite ? this.playerWhite : this.playerBlack;
+        }
+    }
 
+    public boolean isGameOver() {
+        return this.isGameOver;
     }
 
     @Override

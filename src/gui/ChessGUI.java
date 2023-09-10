@@ -188,7 +188,9 @@ public class ChessGUI {
                         secondarySelection = null;
                         System.out.println("SS = null");
                         boardPanel.refreshBoard();
-
+                        if (board.isGameOver()) {
+                            System.out.println("game over");
+                        }
 
                     }
                 }
