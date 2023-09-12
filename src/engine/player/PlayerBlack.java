@@ -7,6 +7,7 @@ import engine.pieces.King;
 import engine.pieces.Piece;
 import engine.util.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerBlack extends Player {
@@ -32,9 +33,5 @@ public class PlayerBlack extends Player {
 
     }
 
-    @Override
-    public boolean isCheckmated() {
-        return false;
-    }
 
 }

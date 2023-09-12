@@ -33,17 +33,4 @@ public class PlayerWhite extends Player {
             return false;
     }
 
-    @Override
-    public boolean isCheckmated() {
-        for (Move move : new ArrayList<>(this.possibleMoves)) {
-            move.executeMove();
-            if (!isChecked()) {
-                move.undoMove();
-                return false;
-            }
-            move.undoMove();
-        }
-        return true;
-    }
-
 }

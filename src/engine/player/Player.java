@@ -6,6 +6,7 @@ import engine.pieces.King;
 import engine.pieces.Piece;
 import engine.util.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Player {
@@ -51,7 +52,17 @@ public abstract class Player {
 
     public abstract boolean isChecked();
 
-    public abstract boolean isCheckmated();
+    public boolean isCheckmated() {
+        for (Move move : new ArrayList<>(this.possibleMoves)) {
+            move.executeMove();
+            if (!isChecked()) {
+                move.undoMove();
+                return false;
+            }
+            move.undoMove();
+        }
+        return true;
+    }
 
     public boolean isStalemated() {
         return !isChecked() && this.possibleMoves.isEmpty() ? true : false;
