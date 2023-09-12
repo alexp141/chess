@@ -49,22 +49,7 @@ public abstract class Player {
         return this.possibleMoves;
     }
 
-    public boolean isChecked() {
-        Position kingPosition = this.playerKing.getPosition();
-        if (this.team == Team.WHITE) {
-            if (this.board.getCellAt(kingPosition.getX(), kingPosition.getY()).isAttackedByBlack())
-                return true;
-            else
-                return false;
-        }
-        else {
-            if (this.board.getCellAt(kingPosition.getX(), kingPosition.getY()).isAttackedByWhite())
-                return true;
-            else
-                return false;
-        }
-
-    }
+    public abstract boolean isChecked();
 
     public boolean isCheckmated() {
         return isChecked() && this.possibleMoves.isEmpty() ? true : false;

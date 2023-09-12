@@ -72,15 +72,7 @@ public class Board {
             return true;
         }
     }
-/*
-    public void refreshMoveSet() {
-        this.activeWhitePieces = getActivePieces(Team.WHITE);
-        this.activeBlackPieces = getActivePieces(Team.BLACK);
-        this.whitePossibleMoves = getPossibleMoves(this.activeWhitePieces);
-        this.blackPossibleMoves = getPossibleMoves(this.activeBlackPieces);
-        this.legalMoves = this.currentPlayer.getPossibleMoves();
-    }
-*/
+
     private Cell[][] initBoard() {
         Cell[][] board = new Cell[8][8];
         //black pawns
