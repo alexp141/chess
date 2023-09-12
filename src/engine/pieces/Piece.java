@@ -49,7 +49,7 @@ public abstract class Piece {
         }
 
         Piece p = (Piece) o;
-        return p.position.equals(this.position) && p.team == this.team && p.isFirstMove == this.isFirstMove;
+        return p.position.equals(this.position) && p.team == this.team;
     }
 
     @Override

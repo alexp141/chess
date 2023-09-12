@@ -62,7 +62,7 @@ public class Board {
         if (destinationCell.isOccupied()) {
             Piece pieceAtDestination = destinationCell.getPiece();
             if (pieceAtDestination.getTeam() != piece.getTeam()) {
-                possibleMoves.add(new AttackMove(board, piece, piece.getPosition(), new Position(x, y), pieceAtDestination));
+                possibleMoves.add(new AttackMove(board, piece, new Position(piece.getPosition()), new Position(x, y), pieceAtDestination));
             }
             return false;
 
@@ -151,8 +151,10 @@ public class Board {
         this.board[y][x] = new OccupiedCell(piece);
     }
 
-    public void removePiece(int x, int y) {
+    public Piece removePiece(int x, int y) {
+        Piece p = this.board[y][x].getPiece();
         this.board[y][x] = new EmptyCell();
+        return p;
     }
 
     /**
@@ -160,7 +162,7 @@ public class Board {
      * @param team
      * @return
      */
-    public List<Piece> getActivePieces(Team team) {
+    private List<Piece> getActivePieces(Team team) {
         List<Piece> pieces = new ArrayList<>();
 
         for (int i = 0; i < BOARD_MAX_ROWS; i++) {
@@ -234,7 +236,7 @@ public class Board {
         else {
             this.currentPlayer = this.playerWhite;
         }
-        if (this.currentPlayer.isCheckmated()) {
+        if (this.currentPlayer.isChecked() && this.currentPlayer.isCheckmated()) {
             this.isGameOver = true;
             this.winner = this.currentPlayer == playerWhite ? this.playerWhite : this.playerBlack;
         }

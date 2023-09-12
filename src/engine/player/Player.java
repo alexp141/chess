@@ -18,12 +18,10 @@ public abstract class Player {
     private boolean hasCastled;
     private boolean isChecked;
 
-    public Player(Board board, Team team, List<Move> whitePossibleMoves) {
+    public Player(Board board, Team team, List<Move> possibleMoves) {
         this.board = board;
-        this.activePieces = board.getActivePieces(team);
         this.team = team;
         this.hasCastled = false;
-        this.playerKing = getPlayerKingHelper();
     }
 
     public abstract List<Piece> getActivePieces();
@@ -33,21 +31,18 @@ public abstract class Player {
         return this.team;
     }
 
-    private King getPlayerKingHelper() {
+    public List<Move> getPossibleMoves() {
+        return this.possibleMoves;
+    }
+
+
+    protected King getPlayerKing() {
         for (Piece piece : this.activePieces) {
             if (piece instanceof King) {
                 return (King) piece;
             }
         }
         throw new RuntimeException("Error retrieving king");
-    }
-
-    public King getPlayerKing() {
-        return this.playerKing;
-    }
-
-    public List<Move> getPossibleMoves() {
-        return this.possibleMoves;
     }
 
     public abstract boolean isChecked();

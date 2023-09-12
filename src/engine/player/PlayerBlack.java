@@ -13,14 +13,14 @@ import java.util.List;
 public class PlayerBlack extends Player {
     public PlayerBlack(Board board, Team team, List<Move> blackPossibleMoves) {
         super(board, team, blackPossibleMoves);
-        this.playerKing = getPlayerKing();
-        this.activePieces = getActivePieces();
         this.possibleMoves = blackPossibleMoves;
+        this.activePieces = board.getActiveBlackPieces();
+        this.playerKing = getPlayerKing();
     }
 
     @Override
     public List<Piece> getActivePieces() {
-        return this.board.getActivePieces(Team.BLACK);
+        return this.activePieces;
     }
 
     @Override

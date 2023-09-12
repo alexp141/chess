@@ -14,14 +14,14 @@ import java.util.List;
 public class PlayerWhite extends Player {
     public PlayerWhite(Board board, Team team, List<Move> whitePossibleMoves) {
         super(board, team, whitePossibleMoves);
-        this.playerKing = getPlayerKing();
-        this.activePieces = getActivePieces();
         this.possibleMoves = whitePossibleMoves;
+        this.activePieces = board.getActiveWhitePieces();
+        this.playerKing = getPlayerKing();
     }
 
     @Override
     public List<Piece> getActivePieces() {
-        return this.board.getActivePieces(Team.WHITE);
+        return this.activePieces;
     }
 
     @Override
