@@ -250,7 +250,7 @@ public class Board {
         PlayerStatus status = this.currentPlayer.checkStatus();
         if (status == PlayerStatus.CHECKMATED) {
             this.isGameOver = true;
-            this.winner = this.currentPlayer;
+            this.winner = this.currentPlayer == playerWhite ? this.playerBlack: this.playerWhite;
         }
         else if (status == PlayerStatus.STALEMATED) {
             this.isGameOver = true;
