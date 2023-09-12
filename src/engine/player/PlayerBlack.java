@@ -32,4 +32,9 @@ public class PlayerBlack extends Player {
 
     }
 
+    @Override
+    public boolean isCheckmated() {
+        return false;
+    }
+
 }

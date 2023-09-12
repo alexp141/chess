@@ -51,9 +51,7 @@ public abstract class Player {
 
     public abstract boolean isChecked();
 
-    public boolean isCheckmated() {
-        return isChecked() && this.possibleMoves.isEmpty() ? true : false;
-    }
+    public abstract boolean isCheckmated();
 
     public boolean isStalemated() {
         return !isChecked() && this.possibleMoves.isEmpty() ? true : false;
@@ -87,8 +85,8 @@ public abstract class Player {
 
         if (isChecked()) {
             //undo
-            System.out.println("illegal move");
             move.undoMove();
+            System.out.println("illegal move");
             return MoveStatus.ILLEGAL_MOVE;
         }
         else {
