@@ -4,6 +4,7 @@ import engine.Team;
 import engine.pieces.*;
 import engine.player.Player;
 import engine.player.PlayerBlack;
+import engine.player.PlayerStatus;
 import engine.player.PlayerWhite;
 import engine.util.Position;
 
@@ -236,9 +237,24 @@ public class Board {
         else {
             this.currentPlayer = this.playerWhite;
         }
-        if (this.currentPlayer.isChecked() && this.currentPlayer.isCheckmated()) {
+//        boolean isCheckmated = this.currentPlayer.isCheckmated();
+//        if (isCheckmated) {
+//            this.isGameOver = true;
+//            this.winner = this.currentPlayer == playerWhite ? this.playerWhite : this.playerBlack;
+//        }
+//        else if (this.currentPlayer.getPossibleMoves().isEmpty() && !isCheckmated) {
+//            this.isGameOver = true;
+//            this.winner = null;
+//        }
+
+        PlayerStatus status = this.currentPlayer.checkStatus();
+        if (status == PlayerStatus.CHECKMATED) {
             this.isGameOver = true;
-            this.winner = this.currentPlayer == playerWhite ? this.playerWhite : this.playerBlack;
+            this.winner = this.currentPlayer;
+        }
+        else if (status == PlayerStatus.STALEMATED) {
+            this.isGameOver = true;
+            this.winner = null;
         }
     }
 

@@ -59,7 +59,6 @@ public class King extends Piece{
                 possibleMoves.add(new PassiveMove(board, this, new Position(this.position), new Position(destination.getX(), destination.getY())));
             }
         }
-        //TODO CASTLING MOVES
         if (this.isFirstMove) {
             if (this.team == Team.WHITE) {
                 Cell r1 = board.getCellAt(5,7);

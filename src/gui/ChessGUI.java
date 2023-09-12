@@ -179,7 +179,14 @@ public class ChessGUI {
                         System.out.println("SS = null");
                         boardPanel.refreshBoard();
                         if (board.isGameOver()) {
-                            String msg = board.getWinner().getPlayerTeam() == Team.WHITE ? "Game over, White wins." : "Game over, Black wins.";
+                            String msg;
+                            if (board.getWinner() == null) {
+                                msg = "Stalemate";
+                            }
+                            else if(board.getWinner().getPlayerTeam() == Team.WHITE)
+                                msg = "Game over, White wins.";
+                            else
+                                msg = "Game over, Black wins.";
                             JOptionPane.showMessageDialog(boardPanel, msg, "Game Over", JOptionPane.INFORMATION_MESSAGE);
                             System.out.println("game over");
                         }

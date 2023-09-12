@@ -47,20 +47,25 @@ public abstract class Player {
 
     public abstract boolean isChecked();
 
-    public boolean isCheckmated() {
+    public PlayerStatus checkStatus() {
         for (Move move : new ArrayList<>(this.possibleMoves)) {
             move.executeMove();
             if (!isChecked()) {
                 move.undoMove();
-                return false;
+                if (isChecked()) {
+                    return PlayerStatus.CHECKED;
+                }
+                return PlayerStatus.GOOD;
             }
             move.undoMove();
         }
-        return true;
-    }
-
-    public boolean isStalemated() {
-        return !isChecked() && this.possibleMoves.isEmpty() ? true : false;
+        //no moves available
+        if (isChecked()) {
+            return PlayerStatus.CHECKMATED;
+        }
+        else {
+            return PlayerStatus.STALEMATED;
+        }
     }
 
     public boolean hasCastled() {

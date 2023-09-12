@@ -27,10 +27,11 @@ public class PlayerWhite extends Player {
     @Override
     public boolean isChecked() {
         Position kingPosition = this.playerKing.getPosition();
-        if (this.board.getCellAt(kingPosition.getX(), kingPosition.getY()).isAttackedByBlack())
+        if (this.board.getCellAt(kingPosition).isAttackedByBlack())
             return true;
         else
             return false;
     }
+
 
 }
