@@ -1,5 +1,6 @@
 package gui;
 
+import engine.Team;
 import engine.board.*;
 import engine.pieces.King;
 import engine.pieces.Rook;
@@ -189,6 +190,8 @@ public class ChessGUI {
                         System.out.println("SS = null");
                         boardPanel.refreshBoard();
                         if (board.isGameOver()) {
+                            String msg = board.getWinner().getPlayerTeam() == Team.WHITE ? "Game over, White wins." : "Game over, Black wins.";
+                            JOptionPane.showMessageDialog(boardPanel, msg, "Game Over", JOptionPane.INFORMATION_MESSAGE);
                             System.out.println("game over");
                         }
 

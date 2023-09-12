@@ -244,6 +244,10 @@ public class Board {
         return this.isGameOver;
     }
 
+    public Player getWinner() {
+        return this.winner;
+    }
+
     @Override
     public String toString() {
         String ret = "";
