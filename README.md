@@ -1,2 +1,12 @@
 # chess
-Chess implemented using Java
+Chess engine implemented using Java.
+
+GUI written with Java Swing.
+
+# Installation
+Simply open the project in your preferred (Java compatable) IDE and run the main method.
+
+A new window will apear with the GUI.
+
+# Overview
+
