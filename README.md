@@ -12,5 +12,5 @@ A new window will apear with the GUI.
 
 ## Starting Board
 
-![alt text](https://github.com/alexp141/chess/tree/c079aa01025d11e5a652087c68b175d15ba8f44c/src/assets/board/starting-board.jpg "Starting board")
+![starting board](src/assets/board/starting-board.jpg)
 
