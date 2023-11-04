@@ -29,7 +29,6 @@ public abstract class Move {
     public Piece getMovingPiece() {
         return this.movingPiece;
     }
-    //TODO add equals and hashcode methods
     public abstract void executeMove();
 
     public abstract void undoMove();

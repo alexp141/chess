@@ -151,12 +151,10 @@ public class ChessGUI {
                     Cell cell = board.getCellAt(primarySelection.getPosition());
                     if (cell instanceof EmptyCell) {
                         primarySelection = null;
-                        System.out.println("PS = null");
                     }
                     else {
                         if (cell.getPiece().getTeam() == board.getCurrentPlayer().getPlayerTeam()) {
                             primarySelection = (CellPanel) e.getSource();
-                            System.out.println("PS = new cell");
                         }
                     }
                 }
@@ -168,15 +166,12 @@ public class ChessGUI {
                         primarySelection = (CellPanel) e.getSource(); //picking new piece of same team
                     }
                     else {
-                        System.out.println("SS set");
                         Move move = board.getCurrentPlayer().getMove(primarySelection.getPosition(), secondarySelection.getPosition());
                         if (move != null) {
                             board.getCurrentPlayer().executeMove(move);
                         }
                         primarySelection = null;
-                        System.out.println("PS = null");
                         secondarySelection = null;
-                        System.out.println("SS = null");
                         boardPanel.refreshBoard();
                         if (board.isGameOver()) {
                             String msg;
@@ -188,7 +183,6 @@ public class ChessGUI {
                             else
                                 msg = "Game over, Black wins.";
                             JOptionPane.showMessageDialog(boardPanel, msg, "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                            System.out.println("game over");
                         }
 
                     }

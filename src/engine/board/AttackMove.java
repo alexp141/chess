@@ -15,7 +15,6 @@ public class AttackMove extends Move {
     @Override
     public void executeMove() {
         this.board.placePiece(movingPiece, destination.getX(), destination.getY());
-        System.out.println(this.board.toString());
         movingPiece.getPosition().updatePosition(destination.getX(),destination.getY());
         if (attacked.getTeam() == Team.WHITE) {
             this.board.getActiveWhitePieces().remove(attacked);
@@ -24,7 +23,6 @@ public class AttackMove extends Move {
             this.board.getActiveBlackPieces().remove(attacked);
         }
         this.board.removePiece(start.getX(), start.getY());
-        System.out.println(this.board.toString());
         this.board.updatePossibleMovesWhite();
         this.board.updatePossibleMovesBlack();
         this.board.updateCellData();
@@ -34,10 +32,8 @@ public class AttackMove extends Move {
     @Override
     public void undoMove() {
         this.board.placePiece(movingPiece, start.getX(), start.getY());
-        System.out.println(this.board.toString());
         movingPiece.getPosition().updatePosition(start.getX(), start.getY());
         this.board.placePiece(attacked, destination.getX(), destination.getY());
-        System.out.println(this.board.toString());
         attacked.getPosition().updatePosition(destination.getX(), destination.getY());
         if (attacked.getTeam() == Team.WHITE) {
             this.board.getActiveWhitePieces().remove(attacked);

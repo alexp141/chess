@@ -82,7 +82,6 @@ public abstract class Player {
                 return move;
             }
         }
-        System.out.println("returning null move");
         return null;
     }
 
@@ -97,7 +96,6 @@ public abstract class Player {
         if (isChecked()) {
             //undo
             move.undoMove();
-            System.out.println("illegal move");
             return MoveStatus.ILLEGAL_MOVE;
         }
         else {
